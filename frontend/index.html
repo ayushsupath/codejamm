@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeJamm - Your Java Journey Starts Here</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeJamm</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="compiler.html">Live Compiler</a></li>
+                <li><a href="programs.html">All Programs</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Your Java Journey Starts Here</h1>
+                <p class="hero-subtitle">Learn, Practice, and Master Java Programming</p>
+                <p class="hero-description">
+                    A complete, free platform with categorized programs, in-browser compiler, 
+                    and structured learning path from basics to advanced concepts.
+                </p>
+                <div class="hero-buttons">
+                    <a href="compiler.html" class="btn btn-primary">
+                        <i class="fas fa-play"></i> Try Live Compiler
+                    </a>
+                    <a href="#categories" class="btn btn-secondary">
+                        <i class="fas fa-book"></i> Browse Topics
+                    </a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <i class="fas fa-code"></i>
+                    <h3 id="total-programs">500+</h3>
+                    <p>Java Programs</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-layer-group"></i>
+                    <h3 id="total-topics">50+</h3>
+                    <p>Topics Covered</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>100%</h3>
+                    <p>Free Forever</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">Why Choose CodeJamm?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <h3>In-Browser Compiler</h3>
+                    <p>Write and execute Java code directly in your browser. No installation required!</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-sitemap"></i>
+                    </div>
+                    <h3>Structured Learning</h3>
+                    <p>Programs organized by difficulty and topics - from basics to advanced concepts.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <h3>Reference Materials</h3>
+                    <p>Comprehensive documentation and cheat sheets for quick reference.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Tutorial Videos</h3>
+                    <p>Learn visually with curated video tutorials embedded on the platform.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-infinity"></i>
+                    </div>
+                    <h3>Always Free</h3>
+                    <p>No hidden costs, no subscriptions. Learn Java without any barriers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Fully Responsive</h3>
+                    <p>Access CodeJamm on any device - desktop, tablet, or mobile.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories Section -->
+    <section id="categories" class="categories">
+        <div class="container">
+            <h2 class="section-title">Explore Java Topics</h2>
+            <p class="section-subtitle">Choose a category to start learning</p>
+            <div class="categories-grid" id="categories-container">
+                <!-- Categories will be loaded dynamically -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading categories...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Popular Programs Section -->
+    <section class="popular-programs">
+        <div class="container">
+            <h2 class="section-title">Most Popular Programs</h2>
+            <div class="programs-grid" id="popular-programs">
+                <!-- Programs will be loaded dynamically -->
+                <div class="loading">
+                    <i class="fas fa-spinner fa-spin"></i> Loading programs...
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Start Section -->
+    <section class="quick-start">
+        <div class="container">
+            <h2 class="section-title">Ready to Start Coding?</h2>
+            <div class="quick-start-content">
+                <div class="quick-start-steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <h3>Choose a Topic</h3>
+                        <p>Browse through categories and select a topic that interests you</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <h3>Learn the Concept</h3>
+                        <p>Read explanations, watch tutorials, and understand the code</p>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <h3>Practice Coding</h3>
+                        <p>Use the live compiler to modify and run code yourself</p>
+                    </div>
+                </div>
+                <a href="compiler.html" class="btn btn-large btn-primary">
+                    <i class="fas fa-rocket"></i> Start Coding Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeJamm</h3>
+                    <p>Your complete Java learning platform - from basics to advanced.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="compiler.html">Live Compiler</a></li>
+                        <li><a href="programs.html">All Programs</a></li>
+                        <li><a href="references.html">References</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Topics</h4>
+                    <ul>
+                        <li><a href="#">Data Structures</a></li>
+                        <li><a href="#">OOPs Concepts</a></li>
+                        <li><a href="#">Collections</a></li>
+                        <li><a href="#">JDBC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p>Built by: Ayush Supath, Deerendra Mishra, Adarsh Tivedi</p>
+                    <p>SGSITS, Indore - MCA Project 2026</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved. Made with <i class="fas fa-heart"></i> for Java learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/home.js"></script>
+</body>
+</html>

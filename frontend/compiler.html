@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Java Compiler - CodeJamm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/compiler.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Monaco Editor (VS Code editor) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/editor/editor.main.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeJamm</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compiler.html" class="active">Live Compiler</a></li>
+                <li><a href="programs.html">All Programs</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Compiler Section -->
+    <section class="compiler-section">
+        <div class="compiler-container">
+            <!-- Toolbar -->
+            <div class="compiler-toolbar">
+                <div class="toolbar-left">
+                    <h2><i class="fas fa-laptop-code"></i> Java Live Compiler</h2>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-sm btn-secondary" id="clear-btn">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                    <button class="btn btn-sm btn-success" id="run-btn">
+                        <i class="fas fa-play"></i> Run Code
+                    </button>
+                </div>
+            </div>
+
+            <!-- Editor and Output Layout -->
+            <div class="compiler-layout">
+                <!-- Code Editor -->
+                <div class="editor-panel">
+                    <div class="panel-header">
+                        <span><i class="fas fa-file-code"></i> Code Editor</span>
+                        <div class="editor-actions">
+                            <button class="btn btn-xs" id="copy-code-btn" title="Copy code">
+                                <i class="fas fa-copy"></i>
+                            </button>
+                            <button class="btn btn-xs" id="format-code-btn" title="Format code">
+                                <i class="fas fa-indent"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="code-editor" class="code-editor"></div>
+                </div>
+
+                <!-- Input/Output Panel -->
+                <div class="io-panel">
+                    <!-- Input Area -->
+                    <div class="input-area">
+                        <div class="panel-header">
+                            <span><i class="fas fa-keyboard"></i> Input (Optional)</span>
+                            <button class="btn btn-xs" id="clear-input-btn">
+                                <i class="fas fa-times"></i> Clear
+                            </button>
+                        </div>
+                        <textarea id="input-area" placeholder="Enter input for your program here (if needed)..."></textarea>
+                    </div>
+
+                    <!-- Output Area -->
+                    <div class="output-area">
+                        <div class="panel-header">
+                            <span><i class="fas fa-terminal"></i> Output</span>
+                            <button class="btn btn-xs" id="clear-output-btn">
+                                <i class="fas fa-times"></i> Clear
+                            </button>
+                        </div>
+                        <div id="output-area" class="output-content">
+                            <div class="output-placeholder">
+                                <i class="fas fa-info-circle"></i>
+                                <p>Click "Run Code" to see the output here</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sample Programs -->
+            <div class="sample-programs">
+                <div class="panel-header">
+                    <span><i class="fas fa-lightbulb"></i> Sample Programs - Click to Load</span>
+                </div>
+                <div class="samples-grid">
+                    <button class="sample-btn" data-sample="hello">
+                        <i class="fas fa-hand-sparkles"></i> Hello World
+                    </button>
+                    <button class="sample-btn" data-sample="fibonacci">
+                        <i class="fas fa-sort-numeric-up"></i> Fibonacci
+                    </button>
+                    <button class="sample-btn" data-sample="factorial">
+                        <i class="fas fa-calculator"></i> Factorial
+                    </button>
+                    <button class="sample-btn" data-sample="prime">
+                        <i class="fas fa-star"></i> Prime Number
+                    </button>
+                    <button class="sample-btn" data-sample="array">
+                        <i class="fas fa-table"></i> Array Sum
+                    </button>
+                    <button class="sample-btn" data-sample="palindrome">
+                        <i class="fas fa-exchange-alt"></i> Palindrome
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Instructions -->
+    <section class="compiler-instructions">
+        <div class="container">
+            <h3><i class="fas fa-question-circle"></i> How to Use the Compiler</h3>
+            <div class="instructions-grid">
+                <div class="instruction">
+                    <span class="instruction-number">1</span>
+                    <p>Write or paste your Java code in the editor</p>
+                </div>
+                <div class="instruction">
+                    <span class="instruction-number">2</span>
+                    <p>Add input if your program needs it (optional)</p>
+                </div>
+                <div class="instruction">
+                    <span class="instruction-number">3</span>
+                    <p>Click "Run Code" to compile and execute</p>
+                </div>
+                <div class="instruction">
+                    <span class="instruction-number">4</span>
+                    <p>View the output or error messages below</p>
+                </div>
+            </div>
+            <div class="compiler-notes">
+                <p><strong>Notes:</strong></p>
+                <ul>
+                    <li>Your code must have a public class with a main method</li>
+                    <li>Execution timeout is set to 5 seconds</li>
+                    <li>Standard Java libraries are available</li>
+                    <li>No file I/O or network operations are supported</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. Made with <i class="fas fa-heart"></i> for Java learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Monaco Editor -->
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs/loader.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/samples.js"></script>
+    <script src="js/compiler.js"></script>
+</body>
+</html>

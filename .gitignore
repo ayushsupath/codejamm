@@ -1,0 +1,66 @@
+# CodeJamm .gitignore
+
+# Java/Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+*.class
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.settings/
+.project
+.classpath
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# OS Files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# Application specific
+/tmp/
+/temp/
+compiler.temp.directory=/tmp/codejamm
+
+# Database
+*.sql.backup
+
+# Environment variables
+.env
+.env.local
+
+# Node modules (if added later)
+node_modules/
+package-lock.json
+
+# Build directories
+build/
+dist/
+out/
+
+# Spring Boot DevTools
+.spring-boot-devtools.properties
+
+# Compiled files
+*.class
+*.jar
+
+# Test coverage
+coverage/
+.nyc_output/
