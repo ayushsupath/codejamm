@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Programs - CodeJamm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeJamm</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compiler.html">Live Compiler</a></li>
+                <li><a href="programs.html" class="active">All Programs</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 4rem 0; text-align: center;">
+        <div class="container">
+            <h1 style="font-size: 3rem; font-weight: 800; margin-bottom: 1rem; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);">Java Programs Library</h1>
+            <p style="font-size: 1.25rem; opacity: 0.9;">Explore a wide range of Java programs categorized by difficulty</p>
+        </div>
+    </section>
+
+    <!-- Filters Section -->
+    <section class="filters" style="background: white; padding: 1.5rem 0; border-bottom: 1px solid var(--border-color); position: sticky; top: 70px; z-index: 990; box-shadow: var(--shadow-sm);">
+        <div class="container">
+            <div class="filters-container" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <!-- Search Box -->
+                <div class="search-box" style="flex: 1; min-width: 300px; position: relative;">
+                    <i class="fas fa-search" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-secondary);"></i>
+                    <input type="text" id="search-input" placeholder="Search programs by title or description..." 
+                           style="width: 100%; padding: 0.75rem 1rem 0.75rem 2.5rem; border: 1px solid var(--border-color); border-radius: 8px; font-size: 1rem; outline: none; transition: var(--transition);">
+                </div>
+
+                <!-- Difficulty Filters -->
+                <div class="difficulty-filters" style="display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 5px;">
+                    <button class="filter-btn active" data-difficulty="all">All</button>
+                    <button class="filter-btn" data-difficulty="EASY">Easy</button>
+                    <button class="filter-btn" data-difficulty="MODERATE">Moderate</button>
+                    <button class="filter-btn" data-difficulty="ADVANCED">Advanced</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Grid Section -->
+    <section class="programs-section" style="padding: 4rem 0; min-height: 50vh;">
+        <div class="container">
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+                <h2 style="font-size: 1.5rem; color: var(--text-primary);"><span id="results-count">Loading</span> Programs Found</h2>
+            </div>
+            
+            <div id="programs-container" class="programs-grid">
+                <!-- Status/Loading State -->
+                <div class="loading" id="programs-loading" style="grid-column: 1 / -1;">
+                    <i class="fas fa-spinner fa-spin"></i> Loading programs...
+                </div>
+            </div>
+
+            <!-- Error State -->
+            <div id="programs-error" class="empty-state" style="display: none; text-align: center; padding: 4rem 0; grid-column: 1 / -1;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;"></i>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary);">Failed to load programs</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">There was an error communicating with the server.</p>
+                <button class="btn btn-primary" onclick="loadPrograms()"><i class="fas fa-sync-alt"></i> Try Again</button>
+            </div>
+
+            <!-- Empty State -->
+            <div id="programs-empty" class="empty-state" style="display: none; text-align: center; padding: 4rem 0; grid-column: 1 / -1;">
+                <i class="fas fa-search" style="font-size: 3rem; color: var(--text-secondary); margin-bottom: 1rem; opacity: 0.5;"></i>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary);">No programs found</h3>
+                <p style="color: var(--text-secondary);">Try adjusting your search or filters to find what you're looking for.</p>
+                <button class="btn btn-secondary mt-3" id="clear-filters-btn" style="margin-top: 1rem;"><i class="fas fa-times"></i> Clear Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. Made with <i class="fas fa-heart"></i> for Java learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/programs.js"></script>
+</body>
+</html>

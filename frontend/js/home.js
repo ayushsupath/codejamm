@@ -111,7 +111,7 @@ async function loadStats() {
  * Navigate to category page
  */
 function navigateToCategory(categoryId) {
-    window.location.href = `programs.html?category=${categoryId}`;
+    window.location.href = 'programs.html';
 }
 
 /**

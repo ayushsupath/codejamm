@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Program Detail - CodeJamm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js for Java code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
+    <style>
+        .program-detail {
+            padding: 3rem 0;
+            background: var(--bg-color);
+        }
+        
+        .breadcrumb {
+            background: white;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+        
+        .breadcrumb a {
+            color: var(--primary-color);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .breadcrumb a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span.separator {
+            margin: 0 0.5rem;
+            color: var(--border-color);
+        }
+        
+        .breadcrumb #program-title-breadcrumb {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .meta-tags {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0 2rem;
+            flex-wrap: wrap;
+        }
+
+        .meta-tag {
+            background: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            box-shadow: var(--shadow-sm);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        
+        .meta-tag strong {
+            color: var(--text-primary);
+        }
+
+        .code-container {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            margin: 2rem 0;
+            background: #2d2d2d; /* Match Prism Tomorrow theme */
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: rgba(0,0,0,0.2);
+            color: #ccc;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .explanation-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            margin-top: 2rem;
+        }
+
+        .explanation-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        /* Loading wrapper */
+        #detail-content {
+            display: none;
+        }
+
+        /* Loading spinner */
+        .spinner-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 5rem 0;
+            color: var(--primary-color);
+        }
+        
+        .spinner-container i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .spinner-container p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeJamm</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compiler.html">Live Compiler</a></li>
+                <li><a href="programs.html" class="active">All Programs</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <a href="index.html">Home</a> 
+            <span class="separator">></span> 
+            <a href="programs.html">Programs</a> 
+            <span class="separator">></span> 
+            <span id="program-title-breadcrumb">Loading...</span>
+        </div>
+    </div>
+    
+    <!-- Program Details Section -->
+    <section class="program-detail">
+        <div class="container">
+            
+            <!-- Loading Indicator -->
+            <div id="loading-indicator" class="spinner-container">
+                <i class="fas fa-circle-notch fa-spin"></i>
+                <p>Loading program details...</p>
+            </div>
+
+            <!-- Error State -->
+            <div id="error-message" class="empty-state" style="display: none; text-align: center; padding: 4rem 0;">
+                <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: #ef4444; margin-bottom: 1rem;"></i>
+                <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem; color: var(--text-primary);" id="error-title">Program not found</h3>
+                <p style="color: var(--text-secondary); margin-bottom: 1.5rem;" id="error-desc">We couldn't load the details for this program.</p>
+                <a href="programs.html" class="btn btn-primary"><i class="fas fa-arrow-left"></i> Back to Programs</a>
+            </div>
+
+            <!-- Main Content Container -->
+            <div id="detail-content">
+                <!-- Header Component -->
+                <div id="program-header">
+                    <h1 id="program-title" style="font-size: 2.5rem; color: var(--text-primary); margin-bottom: 0.5rem;"></h1>
+                    <p id="program-desc" style="font-size: 1.1rem; color: var(--text-secondary); line-height: 1.6; max-width: 800px;"></p>
+                </div>
+                
+                <!-- Metadata Row -->
+                <div class="meta-tags" id="program-metadata">
+                    <span class="program-badge" id="difficulty-badge" style="padding: 0.5rem 1rem; display: inline-flex; align-items: center; font-size: 0.9rem;"></span>
+                    <div class="meta-tag">
+                        <i class="fas fa-stopwatch text-secondary"></i>
+                        <span>Time:</span>
+                        <strong id="time-complexity">O(1)</strong>
+                    </div>
+                    <div class="meta-tag">
+                        <i class="fas fa-memory text-secondary"></i>
+                        <span>Space:</span>
+                        <strong id="space-complexity">O(1)</strong>
+                    </div>
+                    <div class="meta-tag" style="margin-left: auto;">
+                        <i class="fas fa-eye"></i>
+                        <span id="view-count">0</span> views
+                    </div>
+                </div>
+
+                <!-- Code Container Component -->
+                <div class="code-container">
+                    <div class="code-header">
+                        <span><i class="fab fa-java" style="color: #f89820;"></i> Java Source Code</span>
+                        <button id="copy-code-btn" class="btn btn-xs" style="background: rgba(255,255,255,0.1); color: white; border: none;">
+                            <i class="fas fa-copy"></i> Copy
+                        </button>
+                    </div>
+                    <!-- Prism JS highlights code inside <pre><code> -->
+                    <pre class="line-numbers" style="margin: 0; border-radius: 0 0 12px 12px;"><code id="program-code" class="language-java"></code></pre>
+                </div>
+
+                <!-- Explanation / Output (Optional sections typically provided by backend. If no structured DB field, we use description mainly) -->
+                <div class="explanation-card" id="explanation-container" style="display: none;">
+                    <h3><i class="fas fa-lightbulb" style="color: var(--accent-color);"></i> Explanation</h3>
+                    <div id="program-explanation" style="color: var(--text-secondary); line-height: 1.6;"></div>
+                </div>
+
+                <!-- Action Button Controls -->
+                <div class="action-buttons">
+                    <button id="run-in-compiler-btn" class="btn btn-primary btn-large">
+                        <i class="fas fa-play"></i> Run in Compiler
+                    </button>
+                    <button id="like-btn" class="btn btn-secondary btn-large">
+                        <i class="fas fa-heart" id="like-icon"></i> <span id="like-text">Like</span> (<span id="like-count">0</span>)
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. Made with <i class="fas fa-heart"></i> for Java learners.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Prism.js core + Java syntax + line numbers plugin -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css">
+    
+    <script src="js/config.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/program-detail.js"></script>
+</body>
+</html>

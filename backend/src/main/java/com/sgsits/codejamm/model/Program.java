@@ -1,5 +1,6 @@
 package com.sgsits.codejamm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -8,7 +9,8 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * Program Entity - Represents individual Java programs with code, explanation, and metadata
+ * Program Entity - Represents individual Java programs with code, explanation,
+ * and metadata
  */
 @Entity
 @Table(name = "programs")
@@ -28,29 +30,32 @@ public class Program {
     private String description;
 
     @Column(columnDefinition = "TEXT", nullable = false)
-    private String code;  // The actual Java code
+    private String code; // The actual Java code
 
     @Column(columnDefinition = "TEXT")
-    private String explanation;  // Detailed explanation of the program
-
-    @Column(name = "sample_input", columnDefinition = "TEXT")
-    private String sampleInput;  // Example input for the program
-
-    @Column(name = "sample_output", columnDefinition = "TEXT")
-    private String sampleOutput;  // Expected output
+    private String explanation; // Detailed explanation of the program
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id", nullable = false)
+    @JsonIgnore
     private Topic topic;
 
+    @Column(name = "sample_input", columnDefinition = "TEXT")
+    private String sampleInput; // Example input for the program
+
+    @Column(name = "sample_output", columnDefinition = "TEXT")
+    private String sampleOutput; // Expected output
+
+
+
     @Column(name = "difficulty_level", length = 20)
-    private String difficultyLevel;  // EASY, MODERATE, ADVANCED
+    private String difficultyLevel; // EASY, MODERATE, ADVANCED
 
     @Column(name = "time_complexity", length = 50)
-    private String timeComplexity;  // e.g., O(n), O(n^2)
+    private String timeComplexity; // e.g., O(n), O(n^2)
 
     @Column(name = "space_complexity", length = 50)
-    private String spaceComplexity;  // e.g., O(1), O(n)
+    private String spaceComplexity; // e.g., O(1), O(n)
 
     @Column(name = "view_count")
     private Long viewCount = 0L;

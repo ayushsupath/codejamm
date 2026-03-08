@@ -1,5 +1,6 @@
 package com.sgsits.codejamm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,13 +29,14 @@ public class TutorialVideo {
     private String description;
 
     @Column(name = "video_url", nullable = false, length = 500)
-    private String videoUrl;  // YouTube embed URL or similar
+    private String videoUrl; // YouTube embed URL or similar
 
     @Column(name = "thumbnail_url", length = 500)
     private String thumbnailUrl;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "topic_id")
+    @JsonIgnore
     private Topic topic;
 
     @Column(name = "duration_minutes")

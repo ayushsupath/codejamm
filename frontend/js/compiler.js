@@ -13,11 +13,18 @@ document.addEventListener('DOMContentLoaded', function() {
  * Initialize Monaco Editor
  */
 function initializeEditor() {
+    let initialCode = SAMPLE_PROGRAMS.hello.code;
+    const storedCode = sessionStorage.getItem('codejamm_run_code');
+    if (storedCode) {
+        initialCode = storedCode;
+        sessionStorage.removeItem('codejamm_run_code');
+    }
+
     require.config({ paths: { vs: 'https://cdn.jsdelivr.net/npm/monaco-editor@0.44.0/min/vs' } });
     
     require(['vs/editor/editor.main'], function() {
         editor = monaco.editor.create(document.getElementById('code-editor'), {
-            value: SAMPLE_PROGRAMS.hello.code,
+            value: initialCode,
             language: 'java',
             theme: 'vs-dark',
             automaticLayout: true,

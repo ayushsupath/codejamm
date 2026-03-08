@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About CodeJamm</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .about-hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .about-hero p {
+            font-size: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .bg-light {
+            background-color: var(--bg-color);
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .mission-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+
+        .mission-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-primary);
+        }
+
+        .mission-content p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .tech-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .tech-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .tech-card i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .tech-card h3 {
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .tech-card ul {
+            list-style: none;
+            color: var(--text-secondary);
+            padding: 0;
+        }
+
+        .tech-card ul li {
+            margin-bottom: 0.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .tech-card ul li:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 2rem auto 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: 0 5px 15px rgba(37, 99, 235, 0.2);
+        }
+
+        .team-info {
+            padding: 0 2rem 2rem;
+        }
+
+        .team-info h3 {
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-info .role {
+            color: var(--primary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .project-details {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-top: 3rem;
+            text-align: center;
+        }
+
+        .project-details p {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            min-width: 150px;
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .github-section {
+            text-align: center;
+            padding: 5rem 0;
+        }
+
+        .github-card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .github-icon {
+            font-size: 5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+
+        .github-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .contact-section {
+            background: var(--text-primary);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .contact-links a {
+            color: white;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .contact-links a:hover {
+            color: var(--primary-light);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <i class="fas fa-code"></i>
+                <span>CodeJamm</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="compiler.html">Live Compiler</a></li>
+                <li><a href="programs.html">All Programs</a></li>
+                <li><a href="references.html">References</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+            </ul>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="container">
+            <h1>About CodeJamm</h1>
+            <p>Your Complete Java Learning Platform</p>
+        </div>
+    </section>
+
+    <!-- Mission Section -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <div class="mission-grid">
+                <div class="mission-content">
+                    <h2>Our Mission</h2>
+                    <p>CodeJamm was built with a single goal in mind: to simplify the journey of learning Java. We understand that diving into programming can be overwhelming, which is why we've created a zero-friction environment where anyone can start coding instantly.</p>
+                    <p>Whether you're a high school student writing your first "Hello World", a college student preparing for placements, or an enthusiast wanting to understand OOPs concepts deeply, CodeJamm provides all the resources you need in one place, absolutely free of charge.</p>
+                </div>
+                <div class="mission-image" style="text-align: center;">
+                    <i class="fas fa-rocket" style="font-size: 15rem; color: var(--primary-light); opacity: 0.8;"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Stack -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <h2 class="section-title">Technology Stack</h2>
+            <p class="section-subtitle">Powered by modern and robust technologies</p>
+            
+            <div class="tech-grid">
+                <div class="tech-card">
+                    <i class="fab fa-html5"></i>
+                    <h3>Frontend</h3>
+                    <ul>
+                        <li>HTML5 & CSS3</li>
+                        <li>Vanilla JavaScript</li>
+                        <li>Monaco Editor</li>
+                        <li>Responsive Layout</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <i class="fab fa-java"></i>
+                    <h3>Backend</h3>
+                    <ul>
+                        <li>Java 17</li>
+                        <li>Spring Boot 3.2.0</li>
+                        <li>Spring Data JPA</li>
+                        <li>RESTful APIs</li>
+                    </ul>
+                </div>
+                <div class="tech-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Database & Tools</h3>
+                    <ul>
+                        <li>MySQL 8.0</li>
+                        <li>Maven</li>
+                        <li>Git & GitHub</li>
+                        <li>VS Code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="section-padding bg-white">
+        <div class="container">
+            <h2 class="section-title">Meet The Team</h2>
+            <p class="section-subtitle">The minds behind CodeJamm</p>
+
+            <div class="team-grid">
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-tie"></i></div>
+                    <div class="team-info">
+                        <h3>Ayush Supath</h3>
+                        <span class="role">Developer</span>
+                        <p>Focuses on backend architecture and core system implementation using Spring Boot.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-astronaut"></i></div>
+                    <div class="team-info">
+                        <h3>Deerendra Mishra</h3>
+                        <span class="role">Developer</span>
+                        <p>Specializes in frontend development, UI/UX design, and Monaco Editor integration.</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-avatar"><i class="fas fa-user-ninja"></i></div>
+                    <div class="team-info">
+                        <h3>Adarsh Tivedi</h3>
+                        <span class="role">Developer</span>
+                        <p>Manages database design, content curation, and API endpoint optimizations.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-details">
+                <h3>Academic Project Details</h3>
+                <div style="margin: 2rem 0; width: 50px; height: 3px; background: white; margin-left: auto; margin-right: auto;"></div>
+                <p><strong>Institution:</strong> SGSITS, Indore</p>
+                <p><strong>Program:</strong> MCA I Year, Semester II</p>
+                <p><strong>Session:</strong> 2026</p>
+                <p><strong>Mentor:</strong> Ms. Sonika Soni</p>
+                
+                <div class="stats-container">
+                    <div class="stat-box">
+                        <h4>500+</h4>
+                        <span>Java Programs</span>
+                    </div>
+                    <div class="stat-box">
+                        <h4>50+</h4>
+                        <span>Topics Covered</span>
+                    </div>
+                    <div class="stat-box">
+                        <h4>1</h4>
+                        <span>Live Compiler</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section class="github-section bg-light">
+        <div class="container">
+            <div class="github-card">
+                <i class="fab fa-github github-icon"></i>
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: var(--text-primary);">Open Source & Free</h2>
+                <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 600px; margin: 0 auto;">CodeJamm is an open-source project. We believe in accessible education and transparent learning. Feel free to explore our codebase, contribute, or star our repository!</p>
+                <div class="github-buttons">
+                    <a href="https://github.com/InsaanAyu/codejamm" target="_blank" class="btn btn-primary btn-large">
+                        <i class="fas fa-code-branch"></i> View Source Code
+                    </a>
+                    <a href="https://github.com/InsaanAyu/codejamm" target="_blank" class="btn btn-secondary btn-large">
+                        <i class="fas fa-star"></i> Star on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 style="margin-bottom: 1rem; font-size: 2rem;">Get In Touch</h2>
+            <p style="opacity: 0.9; max-width: 500px; margin: 0 auto;">Have feedback, found a bug, or want to suggest a new Java program? We'd love to hear from you!</p>
+            <div class="contact-links">
+                <a href="mailto:contact@codejamm.com" title="Email Us"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/InsaanAyu/codejamm/issues" title="Report an Issue"><i class="fas fa-bug"></i></a>
+                <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" style="margin-top: 0;">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. Made with <i class="fas fa-heart"></i> for Java learners by SGSITS MCA Students.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple mobile menu toggle logic for isolated page
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            if (mobileMenuToggle) {
+                mobileMenuToggle.addEventListener('click', () => {
+                    const navMenu = document.querySelector('.nav-menu');
+                    navMenu.style.display = navMenu.style.display === 'flex' ? 'none' : 'flex';
+                    navMenu.style.flexDirection = 'column';
+                    navMenu.style.position = 'absolute';
+                    navMenu.style.top = '100%';
+                    navMenu.style.left = '0';
+                    navMenu.style.width = '100%';
+                    navMenu.style.backgroundColor = 'var(--card-bg)';
+                    navMenu.style.padding = '1rem 0';
+                    navMenu.style.boxShadow = 'var(--shadow-md)';
+                    navMenu.style.zIndex = '100';
+                    
+                    const listItems = navMenu.querySelectorAll('li');
+                    listItems.forEach(li => {
+                        li.style.textAlign = 'center';
+                        li.style.margin = '0.5rem 0';
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>

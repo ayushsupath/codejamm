@@ -7,15 +7,18 @@ import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 /**
- * Category Entity - Represents main categories like Easy, Moderate, Advanced, Data Structures, etc.
+ * Category Entity - Represents main categories like Easy, Moderate, Advanced,
+ * Data Structures, etc.
  */
 @Entity
 @Table(name = "categories")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Category {
 
     @Id
@@ -32,7 +35,7 @@ public class Category {
     private Integer displayOrder;
 
     @Column(name = "icon_class", length = 50)
-    private String iconClass;  // For UI icons like "fa-code", "fa-database"
+    private String iconClass; // For UI icons like "fa-code", "fa-database"
 
     @Column(name = "is_active")
     private Boolean isActive = true;
@@ -44,6 +47,7 @@ public class Category {
     private LocalDateTime updatedAt;
 
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
     private List<Topic> topics;
 
     @PrePersist

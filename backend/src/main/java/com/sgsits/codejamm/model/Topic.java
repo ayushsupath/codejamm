@@ -1,5 +1,6 @@
 package com.sgsits.codejamm.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +18,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Topic {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     @Column(nullable = false, length = 100)
     private String name;
 
@@ -31,7 +32,13 @@ public class Topic {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id", nullable = false)
+    @JsonIgnore
     private Category category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "topic_id", nullable = false)
+    @JsonIgnore
+    private Topic topic;
 
     @Column(name = "difficulty_level", length = 20)
     private String difficultyLevel; // EASY, MODERATE, ADVANCED
