@@ -1,0 +1,429 @@
+/* Categories Specific Styles */
+
+/* Sidebar */
+.category-layout {
+    display: flex;
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.category-sidebar {
+    width: 250px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 100px;
+    height: calc(100vh - 140px);
+    overflow-y: auto;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+}
+
+.category-sidebar h3 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.category-sidebar ul {
+    list-style: none;
+}
+
+.category-sidebar ul li {
+    margin-bottom: 0.5rem;
+}
+
+.category-sidebar ul li a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.category-sidebar ul li a:hover,
+.category-sidebar ul li a.active {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Category Content area */
+.category-content {
+    flex-grow: 1;
+    min-width: 0; /* Prevent flex overflow */
+}
+
+/* Section Styling */
+.content-section {
+    background: white;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+    scroll-margin-top: 100px;
+}
+
+.content-section h2 {
+    color: var(--text-primary);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--bg-color);
+}
+
+.content-section p {
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+.concept-explanation {
+    background: #f8fafc;
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    border-radius: 0 8px 8px 0;
+    font-size: 1.1rem;
+    font-style: italic;
+}
+
+/* Code Blocks */
+pre[class*="language-"] {
+    border-radius: 8px;
+    margin: 1.5rem 0 !important;
+    padding: 1.5rem !important;
+    font-size: 0.95rem;
+}
+
+.code-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1e293b;
+    padding: 0.5rem 1rem;
+    border-radius: 8px 8px 0 0;
+    margin-top: 1.5rem;
+    margin-bottom: -1.5rem;
+    position: relative;
+    z-index: 10;
+}
+
+.code-lang-badge {
+    color: #94a3b8;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.code-copy-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: #cbd5e1;
+    cursor: pointer;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    transition: var(--transition);
+}
+
+.code-copy-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.try-compiler-btn {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--bg-color);
+    color: var(--primary-color);
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    cursor: pointer;
+}
+
+.try-compiler-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+/* LeetCode Sheet */
+.leetcode-sheet {
+    margin-top: 3rem;
+}
+
+.difficulty-section {
+    margin-bottom: 2rem;
+}
+
+.difficulty-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+}
+
+.difficulty-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: white;
+}
+
+.badge-easy-lc {
+    background-color: #10b981; /* Green */
+}
+
+.badge-medium-lc {
+    background-color: #f59e0b; /* Yellow */
+}
+
+.badge-hard-lc {
+    background-color: #ef4444; /* Red */
+}
+
+.lc-problem-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.lc-problem-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: white;
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+}
+
+.lc-problem-item:hover {
+    border-color: var(--primary-light);
+    transform: translateX(4px);
+}
+
+.lc-checkbox {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.lc-details {
+    flex-grow: 1;
+}
+
+.lc-link {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.25rem;
+    transition: var(--transition);
+}
+
+.lc-link:hover {
+    color: var(--primary-color);
+}
+
+.lc-concept {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+}
+
+.lc-problem-item.completed {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.lc-problem-item.completed .lc-link {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* Check list in text section */
+.concept-checklist {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.concept-checklist li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.concept-checklist li::before {
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+}
+
+.concept-checklist .yes::before {
+    content: '\f00c';
+    color: #10b981;
+}
+
+.concept-checklist .no::before {
+    content: '\f00d';
+    color: #ef4444;
+}
+
+.concept-checklist .bullet::before {
+    content: '\f111';
+    font-size: 0.5rem;
+    top: 0.4rem;
+    left: 0.3rem;
+}
+
+/* ASCII Box */
+.ascii-visual {
+    background: #1e293b;
+    color: #e2e8f0;
+    padding: 1.5rem;
+    border-radius: 8px;
+    font-family: monospace;
+    white-space: pre-wrap;
+    margin: 1.5rem 0;
+    line-height: 1.4;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Pattern Card Styles */
+.pattern-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.pattern-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.pattern-card-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--bg-color);
+}
+
+.pattern-card h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--text-primary);
+}
+
+.pattern-visual {
+    padding: 1.5rem;
+    background: #0f172a;
+    color: #38bdf8;
+    font-family: monospace;
+    line-height: 1.2;
+    text-align: center;
+    white-space: pre;
+    overflow-x: auto;
+    font-size: 1.2rem;
+}
+
+.pattern-logic {
+    padding: 1.5rem;
+    background: white;
+}
+
+.pattern-logic h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+}
+
+.pattern-logic ul {
+    padding-left: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* Topic Dropdown Nav */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 220px;
+    box-shadow: var(--shadow-lg);
+    border-radius: 8px;
+    z-index: 1000;
+    top: 100%;
+    left: 0;
+    padding: 0.5rem 0;
+    border: 1px solid var(--border-color);
+}
+
+.dropdown-content a {
+    color: var(--text-primary) !important;
+    padding: 10px 16px;
+    text-decoration: none;
+    display: block;
+    font-weight: 500 !important;
+    font-size: 0.95rem;
+}
+
+.dropdown-content a:hover {
+    background-color: var(--bg-color);
+    color: var(--primary-color) !important;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropbtn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Responsive Overrides */
+@media (max-width: 1024px) {
+    .category-layout {
+        flex-direction: column;
+    }
+
+    .category-sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+        margin-bottom: 2rem;
+    }
+    
+    .pattern-grid {
+        grid-template-columns: 1fr;
+    }
+}

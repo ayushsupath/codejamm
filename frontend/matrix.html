@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matrix Problems | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+</head>
+<body data-page-id="matrix">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #14b8a6 0%, #0f766e 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Matrix / 2D Arrays</h1>
+                <p class="hero-subtitle">Traversals, Rotations, Searches over Grids</p>
+                <div style="font-family: monospace; font-size: 1.5rem; color: #ccfbf1; margin-top: 1rem; white-space: pre;">[ 1, 2, 3 ]
+[ 4, 5, 6 ]
+[ 7, 8, 9 ]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container category-layout">
+        <!-- Sidebar Navigation -->
+        <div class="category-sidebar">
+            <h3>Matrix Patterns</h3>
+            <ul>
+                <li><a href="#traversal" class="active">Traversals</a></li>
+                <li><a href="#rotation">Rotations</a></li>
+                <li><a href="#search">Search</a></li>
+                <li><a href="#leetcode">LeetCode Prep</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="category-content">
+            
+            <div id="traversal" class="content-section">
+                <h2>1. Traversals</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-route" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Linear traversal is easy, but matrix traversal (Spiral, Diagonal, Zigzag) tests your bounds-checking fundamentally.
+                </div>
+
+                <h3>Spiral Matrix</h3>
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-mat-1" class="language-java">import java.util.*;
+
+public class SpiralMatrix {
+    public static List&lt;Integer&gt; spiralOrder(int[][] matrix) {
+        List&lt;Integer&gt; result = new ArrayList&lt;&gt;();
+        if (matrix.length == 0) return result;
+        
+        int top = 0, bottom = matrix.length - 1;
+        int left = 0, right = matrix[0].length - 1;
+        
+        while (top <= bottom && left <= right) {
+            // Traverse Right
+            for (int j = left; j <= right; j++) result.add(matrix[top][j]);
+            top++;
+            
+            // Traverse Down
+            for (int i = top; i <= bottom; i++) result.add(matrix[i][right]);
+            right--;
+            
+            if (top <= bottom) {
+                // Traverse Left
+                for (int j = right; j >= left; j--) result.add(matrix[bottom][j]);
+                bottom--;
+            }
+            if (left <= right) {
+                // Traverse Up
+                for (int i = bottom; i >= top; i--) result.add(matrix[i][left]);
+                left++;
+            }
+        }
+        return result;
+    }
+
+    public static void main(String[] args) {
+        int[][] matrix = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        System.out.println(spiralOrder(matrix)); // [1, 2, 3, 6, 9, 8, 7, 4, 5]
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-mat-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <div id="leetcode" class="leetcode-sheet content-section">
+                <h2><i class="fas fa-laptop-code" style="color: var(--primary-color);"></i> Matrix Mastery Sheet</h2>
+
+                <div class="difficulty-section">
+                    <div class="difficulty-title">
+                        <i class="fas fa-th"></i> Matrices & 2D Grids
+                    </div>
+                    <div class="lc-problem-list">
+                        <!-- Easy -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="mat-867">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/transpose-matrix/" target="_blank" class="lc-link">867. Transpose Matrix</a>
+                                <div class="lc-concept">Iterate and swap i,j to j,i</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <!-- Medium -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="mat-54">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/spiral-matrix/" target="_blank" class="lc-link">54. Spiral Matrix</a>
+                                <div class="lc-concept">Four-boundary reduction logic</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="mat-48">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/rotate-image/" target="_blank" class="lc-link">48. Rotate Image</a>
+                                <div class="lc-concept">Transpose then Reverse columns</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="mat-73">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/set-matrix-zeroes/" target="_blank" class="lc-link">73. Set Matrix Zeroes</a>
+                                <div class="lc-concept">O(1) space tracking using first row/col</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>
+

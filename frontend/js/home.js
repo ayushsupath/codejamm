@@ -1,51 +1,13 @@
 // Homepage JavaScript
 
 document.addEventListener('DOMContentLoaded', function() {
-    loadCategories();
     loadPopularPrograms();
     loadStats();
 });
 
 /**
- * Load and display categories
- */
-async function loadCategories() {
-    const container = document.getElementById('categories-container');
-    
-    try {
-        const categories = await getCategories();
-        
-        if (categories.length === 0) {
-            container.innerHTML = `
-                <div class="no-data">
-                    <i class="fas fa-inbox"></i>
-                    <p>No categories available yet. Check back soon!</p>
-                </div>
-            `;
-            return;
-        }
-
-        container.innerHTML = categories.map(category => `
-            <div class="category-card" onclick="navigateToCategory(${category.id})">
-                <div class="category-header">
-                    <div class="category-icon">
-                        <i class="${category.iconClass || 'fas fa-folder'}"></i>
-                    </div>
-                    <h3>${category.name}</h3>
-                </div>
-                <p>${category.description || 'Explore programs in this category'}</p>
-            </div>
-        `).join('');
-    } catch (error) {
-        console.error('Error loading categories:', error);
-        container.innerHTML = `
-            <div class="error-message">
-                <i class="fas fa-exclamation-triangle"></i>
-                <p>Failed to load categories. Please try again later.</p>
-            </div>
-        `;
-    }
-}
+ * Load and display hardcoded categories
+    // loadCategories() removed since category cards are now statically defined in HTML
 
 /**
  * Load and display popular programs

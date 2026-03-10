@@ -1,0 +1,250 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JDBC Database in Java | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+</head>
+<body data-page-id="jdbc">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #0284c7 0%, #0c4a6e 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Java Database Connectivity</h1>
+                <p class="hero-subtitle">Connect Java apps to Relational Databases effortlessly</p>
+                <div style="font-family: monospace; font-size: 1.5rem; color: #bae6fd; margin-top: 1rem; white-space: pre;">Connection conn = DriverManager.getConnection(url, user, pass);</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container category-layout">
+        <!-- Sidebar Navigation -->
+        <div class="category-sidebar">
+            <h3>JDBC Concepts</h3>
+            <ul>
+                <li><a href="#intro" class="active">Introduction</a></li>
+                <li><a href="#setup">Setup & Connecting</a></li>
+                <li><a href="#crud">CRUD & Prepared Statements</a></li>
+                <li><a href="#resultset">Result Set Handling</a></li>
+                <li><a href="#transactions">Transactions</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="category-content">
+            
+            <!-- SECTION 1: INTRO -->
+            <div id="intro" class="content-section">
+                <h2>1. Introduction</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-database" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    JDBC (Java Database Connectivity) is a standard API that defines how a Java application can access and interact with databases (like MySQL, PostgreSQL, Oracle) to execute SQL statements.
+                </div>
+
+                <h3>The Core Components:</h3>
+                <ol class="concept-checklist">
+                    <li class="bullet"><strong>DriverManager:</strong> Manages a list of database drivers. Maps connection requests to the appropriate driver.</li>
+                    <li class="bullet"><strong>Connection:</strong> Interface holding the physical connection to the DB.</li>
+                    <li class="bullet"><strong>Statement:</strong> Interface used to execute static SQL statements.</li>
+                    <li class="bullet"><strong>PreparedStatement:</strong> Pre-compiled statement. Highly recommended to prevent SQL injection.</li>
+                    <li class="bullet"><strong>ResultSet:</strong> Object containing the data produced by the executed query.</li>
+                </ol>
+            </div>
+
+            <!-- SECTION 2: SETUP -->
+            <div id="setup" class="content-section">
+                <h2>2. Setup & Connecting</h2>
+                <p>Ensure you have the correct connector driver `.jar` file for your database (e.g., `mysql-connector-java.jar`) in your classpath.</p>
+
+                <!-- Code Example -->
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-jdbc-1" class="language-java">import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class JDBCConnect {
+    public static void main(String[] args) {
+        String url = "jdbc:mysql://localhost:3306/my_database";
+        String username = "root";
+        String password = "password123";
+        
+        // Try-with-resources auto-closes the connection
+        try (Connection conn = DriverManager.getConnection(url, username, password)) {
+            System.out.println("Database connected successfully!");
+            
+        } catch (SQLException e) {
+            System.err.println("Cannot connect to database!");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+            </div>
+
+            <!-- SECTION 3: PREPARED STATEMENTS -->
+            <div id="crud" class="content-section">
+                <h2>3. PreparedStatement CRUD</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-shield-alt" style="color: var(--secondary-color); margin-right: 10px;"></i>
+                    Always use <code>PreparedStatement</code> over regular <code>Statement</code> when user input is involved to prevent <strong>SQL Injection Attacks</strong>! It also caches execution plans for better performance.
+                </div>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-jdbc-2" class="language-java">import java.sql.*;
+
+public class JDBCCrud {
+    public static void insertUser(Connection conn, String name, String email) throws SQLException {
+        String sql = "INSERT INTO users (name, email) VALUES (?, ?)";
+        
+        try (PreparedStatement preparedStatement = conn.prepareStatement(sql)) {
+            // Set the parameters (1-indexed)
+            preparedStatement.setString(1, name);
+            preparedStatement.setString(2, email);
+            
+            // Execute returns number of rows affected
+            int rowsAffected = preparedStatement.executeUpdate();
+            System.out.println(rowsAffected + " row(s) inserted.");
+        }
+    }
+}</code></pre>
+            </div>
+
+            <!-- SECTION 4: RESULT SET -->
+            <div id="resultset" class="content-section">
+                <h2>4. Result Set Handling</h2>
+                
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-jdbc-3" class="language-java">public static void printAllUsers(Connection conn) throws SQLException {
+    String sql = "SELECT id, name, email FROM users";
+    
+    try (Statement statement = conn.createStatement();
+         ResultSet resultSet = statement.executeQuery(sql)) {
+         
+        // .next() moves the cursor forward and returns true if row exists
+        while (resultSet.next()) {
+            int id = resultSet.getInt("id");
+            String name = resultSet.getString("name");
+            String email = resultSet.getString("email");
+            
+            System.out.println("ID: " + id + ", Name: " + name + ", Email: " + email);
+        }
+    }
+}</code></pre>
+            </div>
+
+            <!-- SECTION 5: TRANSACTIONS -->
+            <div id="transactions" class="content-section">
+                <h2>5. Transaction Management</h2>
+                <p>By default, JDBC auto-commits every query immediately. To bundle multiple queries (like bank transfers) so either they <strong>all succeed or all fail</strong>, manually handle commits and rollbacks.</p>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-jdbc-4" class="language-java">public static void transferFunds(Connection conn, int amt, int p1, int p2) {
+    try {
+        // 1. Disable auto-commit
+        conn.setAutoCommit(false);
+        
+        // 2. Execute multiple statements...
+        updateAccount(conn, p1, -amt); // Deduct from User 1
+        updateAccount(conn, p2, amt);  // Add to User 2
+        
+        // 3. Commit the transaction
+        conn.commit();
+        System.out.println("Transfer successful.");
+        
+    } catch (SQLException e) {
+        try {
+            // 4. If error occurs, rollback everything!
+            conn.rollback();
+            System.out.println("Transfer failed. Changes rolled back.");
+        } catch (SQLException rollbackEx) {
+            rollbackEx.printStackTrace();
+        }
+    } finally {
+        // Always reset auto-commit
+        try { conn.setAutoCommit(true); } catch (Exception ignore) {}
+    }
+}</code></pre>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>
+

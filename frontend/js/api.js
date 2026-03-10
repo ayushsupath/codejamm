@@ -121,3 +121,44 @@ async function getTotalProgramsCount() {
 async function getTotalCategoriesCount() {
     return apiRequest(getApiUrl(`${API_CONFIG.ENDPOINTS.CATEGORIES}/count`));
 }
+// Mobile menu toggle
+document.addEventListener('DOMContentLoaded', function() {
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+    }
+
+    // Mobile dropdown toggle
+    document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            if (window.innerWidth <= 768) {
+                e.preventDefault();
+                this.parentElement.classList.toggle('active');
+            }
+        });
+    });
+
+    // Highlight current page in navigation
+    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    
+    navLinks.forEach(link => {
+        const linkPage = link.getAttribute('href');
+        if (linkPage === currentPage || 
+            (currentPage === '' && linkPage === 'index.html') ||
+            (currentPage === '/' && linkPage === 'index.html')) {
+            link.classList.add('active');
+        } else {
+            // Remove lingering active classes from hardcoded HTML
+            link.classList.remove('active'); 
+        }
+    });
+
+    // To handle dropdown parent being active if a child is active
+    if (currentPage !== 'index.html' && currentPage !== 'compiler.html' && currentPage !== 'programs.html' && currentPage !== 'references.html' && currentPage !== 'about.html') {
+        const dropdownItem = document.querySelector('.dropdown .dropdown-toggle');
+        if (dropdownItem) dropdownItem.classList.add('active');
+    }
+});

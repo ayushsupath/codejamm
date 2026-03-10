@@ -1,0 +1,321 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOPs Concepts in Java | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <style>
+        .quiz-container {
+            background: #fffbeb;
+            border: 2px solid #fcd34d;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .quiz-question {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #92400e;
+        }
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        .quiz-option {
+            background: white;
+            border: 1px solid #fcd34d;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .quiz-option:hover {
+            background: #fef3c7;
+        }
+        .quiz-option.correct {
+            background: #dcfce7;
+            border-color: #10b981;
+            color: #166534;
+        }
+        .quiz-option.wrong {
+            background: #fee2e2;
+            border-color: #ef4444;
+            color: #991b1b;
+        }
+        .quiz-feedback {
+            margin-top: 1rem;
+            font-weight: 500;
+            display: none;
+        }
+        .concept-diagram {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .diagram-box {
+            background: var(--primary-light);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-align: center;
+            box-shadow: var(--shadow-md);
+            position: relative;
+        }
+        .diagram-arrow {
+            color: var(--text-secondary);
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body data-page-id="oops">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #f59e0b 0%, #b45309 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Interactive OOPs Concepts</h1>
+                <p class="hero-subtitle">Master Object-Oriented Programming in Java</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container category-layout">
+        <!-- Sidebar Navigation -->
+        <div class="category-sidebar">
+            <h3>OOPs Concepts</h3>
+            <ul>
+                <li><a href="#classes" class="active">Classes & Objects</a></li>
+                <li><a href="#encapsulation">Encapsulation</a></li>
+                <li><a href="#inheritance">Inheritance</a></li>
+                <li><a href="#polymorphism">Polymorphism</a></li>
+                <li><a href="#abstraction">Abstraction</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="category-content">
+            
+            <!-- SECTION 1: CLASSES & OBJECTS -->
+            <div id="classes" class="content-section">
+                <h2>1. Classes & Objects</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-car" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    A <strong>Class</strong> is a blueprint or template (like a car design). 
+                    An <strong>Object</strong> is the actual physical entity created from that blueprint (like a red Toyota Corolla).
+                </div>
+
+                <div class="concept-diagram">
+                    <div class="diagram-box">
+                        Car Class Blueprint
+                        <div style="font-size: 0.8rem; margin-top:0.5rem; font-weight: normal;">Attributes: color, speed<br>Methods: drive(), brake()</div>
+                    </div>
+                    <div class="diagram-arrow"><i class="fas fa-arrow-right"></i></div>
+                    <div style="display:flex; flex-direction:column; gap:1rem;">
+                        <div class="diagram-box" style="background: #ef4444;">Red Car Object</div>
+                        <div class="diagram-box" style="background: #3b82f6;">Blue Car Object</div>
+                    </div>
+                </div>
+
+                <!-- Code Example -->
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-oop-1" class="language-java">class Car {
+    String color;
+    int maxSpeed;
+    
+    // Constructor
+    Car(String c, int s) {
+        color = c;
+        maxSpeed = s;
+    }
+    
+    void displayDetails() {
+        System.out.println("Color: " + color + ", Max Speed: " + maxSpeed);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Creating objects from the Car blueprint
+        Car redCar = new Car("Red", 200);
+        Car blueCar = new Car("Blue", 180);
+        
+        redCar.displayDetails();
+        blueCar.displayDetails();
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-oop-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+
+                <!-- Interactive Quiz -->
+                <div class="quiz-container">
+                    <div class="quiz-question">Q: If 'Animal' is a class, what is 'Dog'?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A variable</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">An object (instance of a class)</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">A method</div>
+                    </div>
+                    <div class="quiz-feedback" style="color: #10b981;">Correct! 'Dog' is the concrete manifestation/object of the abstract 'Animal' blueprint.</div>
+                </div>
+
+            </div>
+
+            <!-- SECTION 2: ENCAPSULATION -->
+            <div id="encapsulation" class="content-section">
+                <h2>2. Encapsulation</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-capsules" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Wrapping data (variables) and code acting on the data (methods) together as a single unit. It hides the internal state of an object from the outside world (Data Hiding).
+                </div>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-oop-2" class="language-java">class BankAccount {
+    // Private: Cannot be accessed directly from outside
+    private double balance;
+    
+    public BankAccount(double initialBalance) {
+        if(initialBalance > 0) balance = initialBalance;
+    }
+    
+    // Public getter
+    public double getBalance() {
+        return balance;
+    }
+    
+    // Public setter with validation
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited: " + amount);
+        }
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        BankAccount myAccount = new BankAccount(500);
+        // myAccount.balance = 1000; // ERROR! private access
+        
+        myAccount.deposit(200);
+        System.out.println("Current Balance: " + myAccount.getBalance());
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-oop-2')"><i class="fas fa-play"></i> Try in Compiler</button>
+
+                <!-- Interactive Quiz -->
+                <div class="quiz-container">
+                    <div class="quiz-question">Q: What is the primary purpose of getter and setter methods?</div>
+                    <div class="quiz-options">
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">To make code run faster</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, true)">To control access and validate data modifications</div>
+                        <div class="quiz-option" onclick="checkAnswer(this, false)">To convert classes to interfaces</div>
+                    </div>
+                    <div class="quiz-feedback" style="color: #10b981;">Correct! They protect the internal state.</div>
+                </div>
+            </div>
+
+            <!-- Add other sections manually if deep diving -->
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/categories.js"></script>
+    <script>
+        function checkAnswer(element, isCorrect) {
+            const container = element.closest('.quiz-container');
+            const options = container.querySelectorAll('.quiz-option');
+            
+            // Highlight options
+            options.forEach(opt => {
+                opt.style.pointerEvents = 'none'; // Disable clicking again
+                if(opt === element && isCorrect) opt.classList.add('correct');
+                else if(opt === element && !isCorrect) opt.classList.add('wrong');
+            });
+            
+            // Show feedback message if correct option was clicked
+            const feedback = container.querySelector('.quiz-feedback');
+            if (isCorrect) {
+                feedback.style.display = 'block';
+                feedback.style.color = '#10b981';
+            } else {
+                feedback.style.display = 'block';
+                feedback.textContent = 'Incorrect. Try thinking about what an object represents in real life relative to a blue-print.';
+                feedback.style.color = '#ef4444';
+            }
+        }
+    </script>
+</body>
+</html>
+

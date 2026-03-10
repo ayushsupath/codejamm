@@ -1,0 +1,422 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Printing in Java | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+    <style>
+        .pattern-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .filter-btn {
+            background: white;
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--text-secondary);
+            transition: var(--transition);
+        }
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
+    </style>
+</head>
+<body data-page-id="patterns">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #8b5cf6 0%, #4c1d95 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master Pattern Printing in Java</h1>
+                <p class="hero-subtitle">30+ patterns from basic to advanced</p>
+                <div style="font-family: monospace; font-size: 1.5rem; color: #a78bfa; margin-top: 1rem; white-space: pre;">*
+  ***  
+ ***** 
+*******</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container" style="padding: 4rem 0;">
+        <div class="pattern-filters">
+            <button class="filter-btn active" data-filter="all">All Patterns</button>
+            <button class="filter-btn" data-filter="star">Star Patterns</button>
+            <button class="filter-btn" data-filter="number">Number Patterns</button>
+            <button class="filter-btn" data-filter="character">Character Patterns</button>
+            <button class="filter-btn" data-filter="pyramid">Pyramids</button>
+        </div>
+
+        <div class="pattern-grid">
+            <!-- Pattern 1: Right Triangle -->
+            <div class="pattern-card" data-category="star">
+                <div class="pattern-card-header">
+                    <h3>Right Triangle</h3>
+                    <span class="difficulty-badge badge-easy-lc">Easy</span>
+                </div>
+                <div class="pattern-visual">*
+* *
+* * *
+* * * *
+* * * * *</div>
+                <div class="pattern-logic">
+                    <h4>Logic Explanation</h4>
+                    <ul>
+                        <li>Outer loop: Rows (i from 1 to n)</li>
+                        <li>Inner loop: Stars in each row (j from 1 to i)</li>
+                        <li>Each row has <code>i</code> stars</li>
+                    </ul>
+                </div>
+                <div class="code-header" style="border-radius:0; margin-top:0;">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers" style="margin:0 !important; border-radius:0;"><code id="pattern-1" class="language-java">public class RightTriangle {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+                <div style="padding: 1rem; background: white; text-align: right; border-top: 1px solid var(--border-color);">
+                    <button class="try-compiler-btn" style="margin:0;" onclick="tryInCompiler('pattern-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+                </div>
+            </div>
+
+            <!-- Pattern 2: Inverted Right Triangle -->
+            <div class="pattern-card" data-category="star">
+                <div class="pattern-card-header">
+                    <h3>Inverted Right Triangle</h3>
+                    <span class="difficulty-badge badge-easy-lc">Easy</span>
+                </div>
+                <div class="pattern-visual">* * * * *
+* * * *
+* * *
+* *
+*</div>
+                <div class="pattern-logic">
+                    <h4>Logic Explanation</h4>
+                    <ul>
+                        <li>Start from n, decrease to 1 (i = n; i >= 1; i--)</li>
+                        <li>Each row has <code>i</code> stars</li>
+                    </ul>
+                </div>
+                <div class="code-header" style="border-radius:0; margin-top:0;">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers" style="margin:0 !important; border-radius:0;"><code id="pattern-2" class="language-java">public class InvertedTriangle {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = n; i >= 1; i--) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+                <div style="padding: 1rem; background: white; text-align: right; border-top: 1px solid var(--border-color);">
+                    <button class="try-compiler-btn" style="margin:0;" onclick="tryInCompiler('pattern-2')"><i class="fas fa-play"></i> Try in Compiler</button>
+                </div>
+            </div>
+
+            <!-- Pattern 3: Pyramid -->
+            <div class="pattern-card" data-category="star pyramid">
+                <div class="pattern-card-header">
+                    <h3>Pyramid Pattern</h3>
+                    <span class="difficulty-badge badge-medium-lc">Medium</span>
+                </div>
+                <div class="pattern-visual">    *
+   * *
+  * * *
+ * * * *
+* * * * *</div>
+                <div class="pattern-logic">
+                    <h4>Logic Explanation</h4>
+                    <ul>
+                        <li>Spaces in each row: <code>(n - i)</code></li>
+                        <li>Stars in each row: <code>i</code></li>
+                    </ul>
+                </div>
+                <div class="code-header" style="border-radius:0; margin-top:0;">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers" style="margin:0 !important; border-radius:0;"><code id="pattern-3" class="language-java">public class Pyramid {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            // Print spaces
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            // Print stars
+            for (int k = 1; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+                <div style="padding: 1rem; background: white; text-align: right; border-top: 1px solid var(--border-color);">
+                    <button class="try-compiler-btn" style="margin:0;" onclick="tryInCompiler('pattern-3')"><i class="fas fa-play"></i> Try in Compiler</button>
+                </div>
+            </div>
+
+            <!-- Pattern 4: Diamond -->
+            <div class="pattern-card" data-category="star pyramid">
+                <div class="pattern-card-header">
+                    <h3>Diamond Pattern</h3>
+                    <span class="difficulty-badge badge-hard-lc">Hard</span>
+                </div>
+                <div class="pattern-visual">    *
+   * *
+  * * *
+ * * * *
+* * * * *
+ * * * *
+  * * *
+   * *
+    *</div>
+                <div class="pattern-logic">
+                    <h4>Logic Explanation</h4>
+                    <ul>
+                        <li>Two parts: Upper pyramid + Lower inverted</li>
+                        <li>Combine both with careful loop limits</li>
+                    </ul>
+                </div>
+                <div class="code-header" style="border-radius:0; margin-top:0;">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers" style="margin:0 !important; border-radius:0; height: 350px;"><code id="pattern-4" class="language-java">public class Diamond {
+    public static void main(String[] args) {
+        int n = 5;
+        // Upper half
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+        // Lower half
+        for (int i = n - 1; i >= 1; i--) {
+            for (int j = 1; j <= n - i; j++) {
+                System.out.print(" ");
+            }
+            for (int k = 1; k <= i; k++) {
+                System.out.print("* ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+                <div style="padding: 1rem; background: white; text-align: right; border-top: 1px solid var(--border-color);">
+                    <button class="try-compiler-btn" style="margin:0;" onclick="tryInCompiler('pattern-4')"><i class="fas fa-play"></i> Try in Compiler</button>
+                </div>
+            </div>
+
+            <!-- Pattern 5: Number Triangle -->
+            <div class="pattern-card" data-category="number">
+                <div class="pattern-card-header">
+                    <h3>Number Triangle</h3>
+                    <span class="difficulty-badge badge-easy-lc">Easy</span>
+                </div>
+                <div class="pattern-visual">1
+1 2
+1 2 3
+1 2 3 4
+1 2 3 4 5</div>
+                <div class="pattern-logic">
+                    <h4>Logic Explanation</h4>
+                    <ul>
+                        <li>Similar to right triangle, but print <code>j</code></li>
+                        <li><code>j</code> goes from 1 to <code>i</code></li>
+                    </ul>
+                </div>
+                <div class="code-header" style="border-radius:0; margin-top:0;">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers" style="margin:0 !important; border-radius:0;"><code id="pattern-5" class="language-java">public class NumberTriangle {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= i; j++) {
+                System.out.print(j + " ");
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+                <div style="padding: 1rem; background: white; text-align: right; border-top: 1px solid var(--border-color);">
+                    <button class="try-compiler-btn" style="margin:0;" onclick="tryInCompiler('pattern-5')"><i class="fas fa-play"></i> Try in Compiler</button>
+                </div>
+            </div>
+
+            <!-- Pattern 6: Character Triangle -->
+            <div class="pattern-card" data-category="character">
+                <div class="pattern-card-header">
+                    <h3>Character Triangle</h3>
+                    <span class="difficulty-badge badge-medium-lc">Medium</span>
+                </div>
+                <div class="pattern-visual">A
+A B
+A B C
+A B C D
+A B C D E</div>
+                <div class="pattern-logic">
+                    <h4>Logic Explanation</h4>
+                    <ul>
+                        <li>Initialize <code>char ch = 'A';</code> inside outer loop</li>
+                        <li>Increment <code>ch++</code> after printing</li>
+                    </ul>
+                </div>
+                <div class="code-header" style="border-radius:0; margin-top:0;">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers" style="margin:0 !important; border-radius:0;"><code id="pattern-6" class="language-java">public class CharTriangle {
+    public static void main(String[] args) {
+        int n = 5;
+        for (int i = 1; i <= n; i++) {
+            char ch = 'A';
+            for (int j = 1; j <= i; j++) {
+                System.out.print(ch + " ");
+                ch++;
+            }
+            System.out.println();
+        }
+    }
+}</code></pre>
+                <div style="padding: 1rem; background: white; text-align: right; border-top: 1px solid var(--border-color);">
+                    <button class="try-compiler-btn" style="margin:0;" onclick="tryInCompiler('pattern-6')"><i class="fas fa-play"></i> Try in Compiler</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeJamm</h3>
+                    <p>Your complete Java learning platform - from basics to advanced.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="compiler.html">Live Compiler</a></li>
+                        <li><a href="programs.html">All Programs</a></li>
+                    </ul>
+                </div>
+                 <div class="footer-section">
+                    <h4>Topics</h4>
+                    <ul>
+                        <li><a href="data-structures.html">Data Structures</a></li>
+                        <li><a href="patterns.html">Pattern Printing</a></li>
+                        <li><a href="oops.html">OOPs Concepts</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/categories.js"></script>
+    <script>
+        // Simple filtering logic
+        document.querySelectorAll('.filter-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class
+                document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                const filter = btn.dataset.filter;
+                document.querySelectorAll('.pattern-card').forEach(card => {
+                    if (filter === 'all' || card.dataset.category.includes(filter)) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+

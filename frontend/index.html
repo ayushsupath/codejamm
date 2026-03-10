@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,24 +8,48 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <i class="fas fa-code"></i>
-                <span>CodeJamm</span>
+                <a href="index.html" style="color: inherit; text-decoration: none;">
+                    <i class="fas fa-code"></i> CodeJamm
+                </a>
             </div>
+
             <ul class="nav-menu">
-                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="index.html">Home</a></li>
+
                 <li><a href="compiler.html">Live Compiler</a></li>
+
                 <li><a href="programs.html">All Programs</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">
+                        Topics <i class="fas fa-chevron-down"></i>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="data-structures.html">Data Structures</a></li>
+                        <li><a href="patterns.html">Pattern Printing</a></li>
+                        <li><a href="oops.html">OOPs Concepts</a></li>
+                        <li><a href="strings.html">String Operations</a></li>
+                        <li><a href="collections.html">Collections Framework</a></li>
+                        <li><a href="matrix.html">Matrix Problems</a></li>
+                        <li><a href="jdbc.html">JDBC Database</a></li>
+                    </ul>
+                </li>
+
                 <li><a href="references.html">References</a></li>
+
                 <li><a href="about.html">About</a></li>
             </ul>
-            <div class="mobile-menu-toggle">
+
+            <button class="mobile-menu-toggle"
+                style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
                 <i class="fas fa-bars"></i>
-            </div>
+            </button>
         </div>
     </nav>
 
@@ -35,7 +60,7 @@
                 <h1>Your Java Journey Starts Here</h1>
                 <p class="hero-subtitle">Learn, Practice, and Master Java Programming</p>
                 <p class="hero-description">
-                    A complete, free platform with categorized programs, in-browser compiler, 
+                    A complete, free platform with categorized programs, in-browser compiler,
                     and structured learning path from basics to advanced concepts.
                 </p>
                 <div class="hero-buttons">
@@ -123,11 +148,97 @@
         <div class="container">
             <h2 class="section-title">Explore Java Topics</h2>
             <p class="section-subtitle">Choose a category to start learning</p>
-            <div class="categories-grid" id="categories-container">
-                <!-- Categories will be loaded dynamically -->
-                <div class="loading">
-                    <i class="fas fa-spinner fa-spin"></i> Loading categories...
-                </div>
+
+            <div class="categories-grid">
+                <!-- Easy Programs Card -->
+                <a href="programs.html?difficulty=EASY" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3>Easy Programs</h3>
+                    <p>Beginner-friendly Java programs to get started</p>
+                </a>
+
+                <!-- Moderate Programs Card -->
+                <a href="programs.html?difficulty=MODERATE" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Moderate Programs</h3>
+                    <p>Intermediate level programs for practice</p>
+                </a>
+
+                <!-- Advanced Programs Card -->
+                <a href="programs.html?difficulty=ADVANCED" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Advanced Programs</h3>
+                    <p>Complex programs for advanced learners</p>
+                </a>
+
+                <!-- Data Structures Card -->
+                <a href="data-structures.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-project-diagram"></i>
+                    </div>
+                    <h3>Data Structures</h3>
+                    <p>Arrays, Linked Lists, Stacks, Queues, Trees, Graphs</p>
+                </a>
+
+                <!-- OOPs Concepts Card -->
+                <a href="oops.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-object-group"></i>
+                    </div>
+                    <h3>OOPs Concepts</h3>
+                    <p>Object-Oriented Programming in Java</p>
+                </a>
+
+                <!-- Pattern Printing Card -->
+                <a href="patterns.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-th"></i>
+                    </div>
+                    <h3>Pattern Printing</h3>
+                    <p>Star patterns, number patterns, and more</p>
+                </a>
+
+                <!-- Matrix Problems Card -->
+                <a href="matrix.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-table"></i>
+                    </div>
+                    <h3>Matrix Problems</h3>
+                    <p>Multi-dimensional array operations</p>
+                </a>
+
+                <!-- String Operations Card -->
+                <a href="strings.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-font"></i>
+                    </div>
+                    <h3>String Operations</h3>
+                    <p>String manipulation and algorithms</p>
+                </a>
+
+                <!-- Collections Framework Card -->
+                <a href="collections.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-layer-group"></i>
+                    </div>
+                    <h3>Collections Framework</h3>
+                    <p>List, Set, Map, Queue implementations</p>
+                </a>
+
+                <!-- JDBC Database Card -->
+                <a href="jdbc.html" class="category-card">
+                    <div class="category-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>JDBC Database</h3>
+                    <p>Database connectivity with Java</p>
+                </a>
             </div>
         </div>
     </section>
@@ -193,6 +304,18 @@
                         <li><a href="index.html">Home</a></li>
                         <li><a href="compiler.html">Live Compiler</a></li>
                         <li><a href="programs.html">All Programs</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropbtn">Topics <i class="fas fa-caret-down"></i></a>
+                            <div class="dropdown-content">
+                                <a href="data-structures.html">Data Structures</a>
+                                <a href="patterns.html">Pattern Printing</a>
+                                <a href="oops.html">OOPs Concepts</a>
+                                <a href="strings.html">String Operations</a>
+                                <a href="collections.html">Collections Framework</a>
+                                <a href="matrix.html">Matrix Problems</a>
+                                <a href="jdbc.html">JDBC Database</a>
+                            </div>
+                        </li>
                         <li><a href="references.html">References</a></li>
                     </ul>
                 </div>
@@ -207,12 +330,13 @@
                 </div>
                 <div class="footer-section">
                     <h4>About</h4>
-                    <p>Built by: Ayush Supath, Deerendra Mishra, Adarsh Tivedi</p>
+                    <p>Built by: Ayush Supath, Dheerendra Mishra, Adarsh Dwivedi</p>
                     <p>SGSITS, Indore - MCA Project 2026</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 CodeJamm. All rights reserved. Made with <i class="fas fa-heart"></i> for Java learners.</p>
+                <p>&copy; 2026 CodeJamm. All rights reserved. Made with <i class="fas fa-heart"></i> for Java learners.
+                </p>
             </div>
         </div>
     </footer>
@@ -221,4 +345,5 @@
     <script src="js/api.js"></script>
     <script src="js/home.js"></script>
 </body>
+
 </html>

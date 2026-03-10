@@ -1,0 +1,693 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Data Structures in Java | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS (Tomorrow Night Theme) -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+</head>
+<body data-page-id="ds">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #10b981 0%, #047857 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Master Data Structures in Java</h1>
+                <p class="hero-subtitle">From basics to advanced - Arrays, Lists, Stacks, Trees, Graphs</p>
+                <p class="hero-description">
+                    Learn the fundamental building blocks of programming, essential for technical interviews and efficient software design.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container category-layout">
+        <!-- Sidebar Navigation -->
+        <div class="category-sidebar">
+            <h3>Topics Overview</h3>
+            <ul>
+                <li><a href="#arrays" class="active">Arrays</a></li>
+                <li><a href="#linked-lists">Linked Lists</a></li>
+                <li><a href="#stacks">Stacks</a></li>
+                <li><a href="#queues">Queues</a></li>
+                <li><a href="#trees">Trees</a></li>
+                <li><a href="#graphs">Graphs</a></li>
+                <li><a href="#leetcode">LeetCode Practice</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="category-content">
+            
+            <!-- SECTION 1: ARRAYS -->
+            <div id="arrays" class="content-section">
+                <h2>1. Arrays</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Think of an array like a row of lockers in school. Each locker has a number (index) 
+                    and can store one item. You can quickly access any locker if you know its number.
+                </div>
+
+                <h3>What is an Array?</h3>
+                <ul class="concept-checklist">
+                    <li class="bullet">Collection of elements of same type</li>
+                    <li class="bullet">Fixed size once created</li>
+                    <li class="bullet">Elements stored in contiguous memory</li>
+                    <li class="bullet">Fast access using index (O(1) time complexity)</li>
+                </ul>
+
+                <h3>When to Use Arrays?</h3>
+                <ul class="concept-checklist">
+                    <li class="yes">When you know the size beforehand</li>
+                    <li class="yes">When you need fast random access</li>
+                    <li class="yes">When storing homogeneous data</li>
+                    <li class="no">Don't use if size changes frequently</li>
+                </ul>
+
+                <p><strong>Real-Life Example:</strong> <br>
+                Days of week = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']<br>
+                You can directly access Friday using index 4 (since it's zero-indexed).</p>
+
+                <!-- Code Example 1 -->
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-arrays-1" class="language-java">// Declaration and initialization
+int[] numbers = new int[5];  // Creates array of size 5
+int[] scores = {95, 87, 92, 88, 91};  // Initialize with values
+
+// Accessing elements
+System.out.println(scores[0]);  // Output: 95
+
+// Modifying elements
+scores[2] = 100;  // Changes 92 to 100
+
+// Array length
+System.out.println(scores.length);  // Output: 5</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-arrays-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+
+                <!-- Code Example 2 -->
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-arrays-2" class="language-java">public class ArrayTraversal {
+    public static void main(String[] args) {
+        int[] arr = {10, 20, 30, 40, 50};
+        
+        // Using for loop
+        System.out.println("Using for loop:");
+        for (int i = 0; i < arr.length; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        
+        // Using enhanced for loop
+        System.out.println("\nUsing enhanced for:");
+        for (int num : arr) {
+            System.out.print(num + " ");
+        }
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-arrays-2')"><i class="fas fa-play"></i> Try in Compiler</button>
+
+                <h3>Common Array Operations:</h3>
+                <ul class="concept-checklist">
+                    <li class="bullet">Insertion - O(n) at specific position (requires shifting elements)</li>
+                    <li class="bullet">Deletion - O(n) (requires shifting elements)</li>
+                    <li class="bullet">Search - O(n) linear search, O(log n) binary search (if array is sorted)</li>
+                    <li class="bullet">Access - O(1) instantaneous access via index</li>
+                </ul>
+            </div>
+
+            <!-- SECTION 2: LINKED LISTS -->
+            <div id="linked-lists" class="content-section">
+                <h2>2. Linked Lists</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Imagine a treasure hunt where each clue points to the next location. That's a linked list! 
+                    Each node holds data and a 'pointer' to the next node.
+                </div>
+
+                <div class="ascii-visual">
+HEAD â†’ [Data|Next] â†’ [Data|Next] â†’ [Data|Next] â†’ NULL
+
+Example:
+HEAD â†’ [10|â€¢] â†’ [20|â€¢] â†’ [30|NULL]</div>
+
+                <h3>Types of Linked Lists:</h3>
+                <ul class="concept-checklist">
+                    <li class="bullet"><strong>Singly Linked List</strong> - Traverse in one direction only.</li>
+                    <li class="bullet"><strong>Doubly Linked List</strong> - Connects forward and backward.</li>
+                    <li class="bullet"><strong>Circular Linked List</strong> - Last node connects back to the first.</li>
+                </ul>
+
+                <h3>When to Use?</h3>
+                <ul class="concept-checklist">
+                    <li class="yes">Frequent insertions and deletions without shifting.</li>
+                    <li class="yes">When the total size is unknown or highly variable.</li>
+                    <li class="yes">When you don't need fast random access via an index.</li>
+                    <li class="no">Don't use if you need fast access to middle elements.</li>
+                </ul>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-ll-1" class="language-java">class Node {
+    int data;
+    Node next;
+    
+    Node(int data) {
+        this.data = data;
+        this.next = null;
+    }
+}
+
+class LinkedList {
+    Node head;
+    
+    // Insert at beginning
+    void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        newNode.next = head;
+        head = newNode;
+    }
+    
+    // Insert at end
+    void insertAtEnd(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node temp = head;
+        while (temp.next != null) {
+            temp = temp.next;
+        }
+        temp.next = newNode;
+    }
+    
+    // Display list
+    void display() {
+        Node temp = head;
+        while (temp != null) {
+            System.out.print(temp.data + " â†’ ");
+            temp = temp.next;
+        }
+        System.out.println("NULL");
+    }
+    
+    public static void main(String[] args) {
+        LinkedList list = new LinkedList();
+        list.insertAtEnd(10);
+        list.insertAtEnd(20);
+        list.insertAtBeginning(5);
+        list.display();  // Output: 5 â†’ 10 â†’ 20 â†’ NULL
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-ll-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- SECTION 3: STACKS -->
+            <div id="stacks" class="content-section">
+                <h2>3. Stacks</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Stack of plates in a cafeteria. You can only add or remove from the top. 
+                    Last plate added is the first one removed (LIFO - Last In First Out).
+                </div>
+
+                <h3>Real Examples:</h3>
+                <ul class="concept-checklist">
+                    <li class="bullet">Undo feature in text editors</li>
+                    <li class="bullet">Browser back button history</li>
+                    <li class="bullet">Function call stack during program execution</li>
+                </ul>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-stack-1" class="language-java">import java.util.Stack;
+
+public class StackDemo {
+    public static void main(String[] args) {
+        Stack&lt;Integer&gt; stack = new Stack&lt;&gt;();
+        
+        // Push elements
+        stack.push(10);
+        stack.push(20);
+        stack.push(30);
+        System.out.println("Stack: " + stack);  // [10, 20, 30]
+        
+        // Peek - view top
+        System.out.println("Top element: " + stack.peek());  // 30
+        
+        // Pop - remove top
+        int removed = stack.pop();
+        System.out.println("Removed: " + removed);  // 30
+        System.out.println("After pop: " + stack);  // [10, 20]
+        
+        // Check if empty
+        System.out.println("Is empty? " + stack.isEmpty());  // false
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-stack-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- SECTION 4: QUEUES -->
+            <div id="queues" class="content-section">
+                <h2>4. Queues</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Like a queue at a ticket counter. The first person in line gets served first 
+                    (FIFO - First In First Out).
+                </div>
+
+                <h3>Common Operations:</h3>
+                <ul class="concept-checklist">
+                    <li class="bullet"><code>enqueue(x)</code> / <code>offer(x)</code> - Add element to the rear</li>
+                    <li class="bullet"><code>dequeue()</code> / <code>poll()</code> - Remove element from the front</li>
+                    <li class="bullet"><code>peek()</code> - View the front element</li>
+                </ul>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-queue-1" class="language-java">import java.util.Queue;
+import java.util.LinkedList;
+
+public class QueueDemo {
+    public static void main(String[] args) {
+        Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+        
+        // Add elements
+        queue.offer(10);
+        queue.offer(20);
+        queue.offer(30);
+        System.out.println("Queue: " + queue);  // [10, 20, 30]
+        
+        // Peek front
+        System.out.println("Front: " + queue.peek());  // 10
+        
+        // Remove front
+        int removed = queue.poll();
+        System.out.println("Removed: " + removed);  // 10
+        System.out.println("After removal: " + queue);  // [20, 30]
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-queue-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- SECTION 5: TREES -->
+            <div id="trees" class="content-section">
+                <h2>5. Trees</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    A family tree! You have ancestors (parents) and descendants (children). 
+                    A Binary tree means each parent has a maximum of 2 children left and right.
+                </div>
+
+                <div class="ascii-visual">
+       10
+      /  \
+     5    20
+    / \   /
+   3   7 15</div>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-tree-1" class="language-java">class TreeNode {
+    int data;
+    TreeNode left, right;
+    
+    TreeNode(int data) {
+        this.data = data;
+        left = right = null;
+    }
+}
+
+class BinaryTree {
+    TreeNode root;
+    
+    // Inorder traversal (Left-Root-Right)
+    void inorder(TreeNode node) {
+        if (node == null) return;
+        inorder(node.left);
+        System.out.print(node.data + " ");
+        inorder(node.right);
+    }
+    
+    // Preorder traversal (Root-Left-Right)
+    void preorder(TreeNode node) {
+        if (node == null) return;
+        System.out.print(node.data + " ");
+        preorder(node.left);
+        preorder(node.right);
+    }
+    
+    // Postorder traversal (Left-Right-Root)
+    void postorder(TreeNode node) {
+        if (node == null) return;
+        postorder(node.left);
+        postorder(node.right);
+        System.out.print(node.data + " ");
+    }
+    
+    public static void main(String[] args) {
+        BinaryTree tree = new BinaryTree();
+        tree.root = new TreeNode(10);
+        tree.root.left = new TreeNode(5);
+        tree.root.right = new TreeNode(20);
+        tree.root.left.left = new TreeNode(3);
+        tree.root.left.right = new TreeNode(7);
+        
+        System.out.print("Inorder: ");
+        tree.inorder(tree.root);  // 3 5 7 10 20
+        
+        System.out.print("\nPreorder: ");
+        tree.preorder(tree.root);  // 10 5 3 7 20
+        
+        System.out.print("\nPostorder: ");
+        tree.postorder(tree.root);  // 3 7 5 20 10
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-tree-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- SECTION 6: GRAPHS -->
+            <div id="graphs" class="content-section">
+                <h2>6. Graphs</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-lightbulb" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Like a social network! People are nodes, friendships are edges. 
+                    You can traverse from one person to another through connections.
+                </div>
+
+                <div class="ascii-visual">
+Adjacency List:
+0 â†’ [1, 2]
+1 â†’ [0, 3]
+2 â†’ [0, 4]
+3 â†’ [1]
+4 â†’ [2]</div>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-graph-1" class="language-java">import java.util.*;
+
+class Graph {
+    int V;  // Number of vertices
+    LinkedList&lt;Integer&gt;[] adj;
+    
+    @SuppressWarnings("unchecked")
+    Graph(int v) {
+        V = v;
+        adj = new LinkedList[v];
+        for (int i = 0; i < v; i++) {
+            adj[i] = new LinkedList&lt;&gt;();
+        }
+    }
+    
+    void addEdge(int v, int w) {
+        adj[v].add(w);
+        adj[w].add(v);  // For undirected graph
+    }
+    
+    void BFS(int start) {
+        boolean[] visited = new boolean[V];
+        Queue&lt;Integer&gt; queue = new LinkedList&lt;&gt;();
+        
+        visited[start] = true;
+        queue.add(start);
+        
+        System.out.print("BFS traversal: ");
+        while (!queue.isEmpty()) {
+            int node = queue.poll();
+            System.out.print(node + " ");
+            
+            for (int neighbor : adj[node]) {
+                if (!visited[neighbor]) {
+                    visited[neighbor] = true;
+                    queue.add(neighbor);
+                }
+            }
+        }
+    }
+    
+    public static void main(String[] args) {
+        Graph g = new Graph(5);
+        g.addEdge(0, 1);
+        g.addEdge(0, 2);
+        g.addEdge(1, 3);
+        g.addEdge(2, 4);
+        g.BFS(0);  // Output: 0 1 2 3 4
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-graph-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- LEETCODE PRACTICE SHEET -->
+            <div id="leetcode" class="leetcode-sheet content-section">
+                <h2><i class="fas fa-laptop-code" style="color: var(--primary-color);"></i> LeetCode Practice Sheet</h2>
+                <p>Master these carefully selected problems to strengthen your core Data Structure foundations. Use the checkboxes to track your progress locally!</p>
+
+                <!-- ARRAYS LC -->
+                <div class="difficulty-section">
+                    <div class="difficulty-title">
+                        <i class="fas fa-layer-group"></i> Arrays
+                    </div>
+                    <div class="lc-problem-list">
+                        <!-- Easy -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="arr-1">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/two-sum/" target="_blank" class="lc-link">1. Two Sum</a>
+                                <div class="lc-concept">Hash maps for O(n) solution</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="arr-2">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/" target="_blank" class="lc-link">2. Best Time to Buy and Sell Stock</a>
+                                <div class="lc-concept">Track minimum and max profit</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="arr-4">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/maximum-subarray/" target="_blank" class="lc-link">4. Maximum Subarray</a>
+                                <div class="lc-concept">Kadane's Algorithm</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <!-- Medium -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="arr-11">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/3sum/" target="_blank" class="lc-link">11. 3Sum</a>
+                                <div class="lc-concept">Two pointers with sorting</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="arr-12">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/container-with-most-water/" target="_blank" class="lc-link">12. Container With Most Water</a>
+                                <div class="lc-concept">Greedy two pointers</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <!-- Hard -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="arr-18">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank" class="lc-link">18. Trapping Rain Water</a>
+                                <div class="lc-concept">Two pointers or stack</div>
+                            </div>
+                            <span class="difficulty-badge badge-hard-lc">Hard</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- LINKED LISTS LC -->
+                <div class="difficulty-section">
+                    <div class="difficulty-title">
+                        <i class="fas fa-link"></i> Linked Lists
+                    </div>
+                    <div class="lc-problem-list">
+                        <!-- Easy -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="ll-1">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/reverse-linked-list/" target="_blank" class="lc-link">1. Reverse Linked List</a>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="ll-4">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/linked-list-cycle/" target="_blank" class="lc-link">4. Linked List Cycle</a>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <!-- Medium -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="ll-9">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/add-two-numbers/" target="_blank" class="lc-link">9. Add Two Numbers</a>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TREES LC -->
+                <div class="difficulty-section">
+                    <div class="difficulty-title">
+                        <i class="fas fa-tree"></i> Trees & Graphs
+                    </div>
+                    <div class="lc-problem-list">
+                        <!-- Easy -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="tree-1">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/maximum-depth-of-binary-tree/" target="_blank" class="lc-link">1. Maximum Depth of Binary Tree</a>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <!-- Medium -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="tree-8">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank" class="lc-link">8. Level Order Traversal</a>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <!-- Graph Medium -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="graph-5">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/number-of-islands/" target="_blank" class="lc-link">5. Number of Islands</a>
+                                <div class="lc-concept">Graph BFS/DFS Traversal</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>CodeJamm</h3>
+                    <p>Your complete Java learning platform - from basics to advanced.</p>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="compiler.html">Live Compiler</a></li>
+                        <li><a href="programs.html">All Programs</a></li>
+                        <li><a href="references.html">References</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Topics</h4>
+                    <ul>
+                        <li><a href="data-structures.html">Data Structures</a></li>
+                        <li><a href="oops.html">OOPs Concepts</a></li>
+                        <li><a href="collections.html">Collections</a></li>
+                        <li><a href="jdbc.html">JDBC</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>About</h4>
+                    <p>Built by: Ayush Supath, Deerendra Mishra, Adarsh Tivedi</p>
+                    <p>SGSITS, Indore - MCA Project 2026</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved. Made with <i class="fas fa-heart"></i> for Java learners.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Prism.js core -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <!-- Custom implementation -->
+    <script src="js/categories.js"></script>
+</body>
+</html>
+

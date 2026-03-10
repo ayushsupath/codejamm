@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collections Framework | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+</head>
+<body data-page-id="collections">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #0ea5e9 0%, #0369a1 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Java Collections Framework</h1>
+                <p class="hero-subtitle">Lists, Sets, Maps, and Queues</p>
+                <div style="font-family: monospace; font-size: 1.5rem; color: #bae6fd; margin-top: 1rem; white-space: pre;">Map&lt;String, Integer&gt; map = new HashMap&lt;&gt;();</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container category-layout">
+        <div class="category-sidebar">
+            <h3>Framework Tools</h3>
+            <ul>
+                <li><a href="#hierarchy" class="active">Visual Hierarchy</a></li>
+                <li><a href="#lists">Lists</a></li>
+                <li><a href="#sets">Sets</a></li>
+                <li><a href="#maps">Maps</a></li>
+                <li><a href="#leetcode">LeetCode Prep</a></li>
+            </ul>
+        </div>
+
+        <div class="category-content">
+            
+            <div id="hierarchy" class="content-section">
+                <h2>1. Visual Hierarchy</h2>
+                <div class="ascii-visual" style="text-align: left;">Collection Interface
+â”œâ”€â”€ List
+â”‚   â”œâ”€â”€ ArrayList (Dynamic Array)
+â”‚   â”œâ”€â”€ LinkedList (Nodes with Pointers)
+â”‚   â””â”€â”€ Vector (Legacy, Thread-Safe)
+â”œâ”€â”€ Set
+â”‚   â”œâ”€â”€ HashSet (Unordered, O(1))
+â”‚   â”œâ”€â”€ LinkedHashSet (Insertion Order)
+â”‚   â””â”€â”€ TreeSet (Sorted Order, O(log N))
+â””â”€â”€ Queue
+    â”œâ”€â”€ PriorityQueue (Heap implementation)
+    â””â”€â”€ Deque (Double Ended Queue)
+
+Map Interface (Does NOT extend Collection)
+â”œâ”€â”€ HashMap (Unordered, O(1))
+â”œâ”€â”€ LinkedHashMap (Insertion Order)
+â””â”€â”€ TreeMap (Sorted Order by keys)</div>
+            </div>
+
+            <div id="lists" class="content-section">
+                <h2>2. Lists: Ordered Collections</h2>
+                <p>Lists preserve insertion order and allow duplicate elements.</p>
+                
+                <table style="width: 100%; border-collapse: collapse; margin-bottom: 2rem;">
+                    <tr style="background: var(--bg-color);">
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">Implementation</th>
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">Best Use Case</th>
+                        <th style="padding: 10px; border: 1px solid var(--border-color);">Avoid When</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid var(--border-color);">ArrayList</td>
+                        <td style="padding: 10px; border: 1px solid var(--border-color);">Fast random access via index, iterating</td>
+                        <td style="padding: 10px; border: 1px solid var(--border-color);">Frequent insertions/removals at beginning</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid var(--border-color);">LinkedList</td>
+                        <td style="padding: 10px; border: 1px solid var(--border-color);">Frequent insertions/removals at ends</td>
+                        <td style="padding: 10px; border: 1px solid var(--border-color);">Need fast random access to middle elements</td>
+                    </tr>
+                </table>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-col-list-1" class="language-java">import java.util.*;
+
+public class ListDemo {
+    public static void main(String[] args) {
+        List&lt;String&gt; arrList = new ArrayList&lt;&gt;();
+        arrList.add("Apple");
+        arrList.add("Banana");
+        arrList.add("Apple"); // Duplicates allowed
+        
+        System.out.println("ArrayList: " + arrList);
+        System.out.println("Element at index 1: " + arrList.get(1)); // Fast O(1)
+        
+        List&lt;String&gt; linkList = new LinkedList&lt;&gt;(arrList);
+        ((LinkedList&lt;String&gt;)linkList).addFirst("Zero"); // Fast insertion O(1)
+        System.out.println("LinkedList: " + linkList);
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-col-list-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <div id="sets" class="content-section">
+                <h2>3. Sets: Unique Collections</h2>
+                <p>Sets do not allow duplicate elements. Extremely useful for finding unique items.</p>
+                
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-col-set-1" class="language-java">import java.util.*;
+
+public class SetDemo {
+    public static void main(String[] args) {
+        Set&lt;Integer&gt; hashSet = new HashSet&lt;&gt;();
+        hashSet.add(10);
+        hashSet.add(5);
+        hashSet.add(20);
+        hashSet.add(10); // Duplicate will be ignored!
+        
+        // Output order is unpredictable
+        System.out.println("HashSet: " + hashSet); 
+        System.out.println("Contains 5? " + hashSet.contains(5)); // Extremely fast O(1)
+        
+        // If sorting is needed, use TreeSet
+        Set&lt;Integer&gt; treeSet = new TreeSet&lt;&gt;(hashSet);
+        System.out.println("TreeSet (Sorted): " + treeSet); // [5, 10, 20]
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-col-set-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <div id="maps" class="content-section">
+                <h2>4. Maps: Key-Value Pairs</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-key" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Think of a real-world dictionary. Maps map <strong>unique Keys</strong> to <strong>Values</strong> (which can be duplicate).
+                </div>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-col-map-1" class="language-java">import java.util.*;
+
+public class MapDemo {
+    public static void main(String[] args) {
+        Map&lt;String, Integer&gt; scores = new HashMap&lt;&gt;();
+        
+        // Putting data
+        scores.put("Alice", 95);
+        scores.put("Bob", 80);
+        scores.put("Charlie", 90);
+        
+        // Overwriting a key
+        scores.put("Bob", 85); // Bob's score is updated
+        
+        System.out.println(scores);
+        System.out.println("Alice's score: " + scores.get("Alice"));
+        
+        // Iterating over Map
+        for (Map.Entry&lt;String, Integer&gt; entry : scores.entrySet()) {
+            System.out.println(entry.getKey() + " -> " + entry.getValue());
+        }
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-col-map-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>
+

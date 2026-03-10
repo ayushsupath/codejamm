@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -138,23 +138,45 @@
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <i class="fas fa-code"></i>
-                <span>CodeJamm</span>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="compiler.html">Live Compiler</a></li>
-                <li><a href="programs.html" class="active">All Programs</a></li>
-                <li><a href="references.html">References</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <div class="mobile-menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
         </div>
-    </nav>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
     
     <!-- Breadcrumb -->
     <div class="breadcrumb">
@@ -263,3 +285,4 @@
     <script src="js/program-detail.js"></script>
 </body>
 </html>
+

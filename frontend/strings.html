@@ -1,0 +1,301 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Operations in Java | CodeJamm</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/categories.css">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Prism.js CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.css" rel="stylesheet" />
+</head>
+<body data-page-id="strings">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+    <div class="container">
+        <div class="nav-brand">
+            <a href="index.html" style="color: inherit; text-decoration: none;">
+                <i class="fas fa-code"></i> CodeJamm
+            </a>
+        </div>
+        
+        <ul class="nav-menu">
+            <li><a href="index.html">Home</a></li>
+            
+            <li><a href="compiler.html">Live Compiler</a></li>
+            
+            <li><a href="programs.html">All Programs</a></li>
+            
+            <li class="dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Topics <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="data-structures.html">Data Structures</a></li>
+                    <li><a href="patterns.html">Pattern Printing</a></li>
+                    <li><a href="oops.html">OOPs Concepts</a></li>
+                    <li><a href="strings.html">String Operations</a></li>
+                    <li><a href="collections.html">Collections Framework</a></li>
+                    <li><a href="matrix.html">Matrix Problems</a></li>
+                    <li><a href="jdbc.html">JDBC Database</a></li>
+                </ul>
+            </li>
+            
+            <li><a href="references.html">References</a></li>
+            
+            <li><a href="about.html">About</a></li>
+        </ul>
+        
+        <button class="mobile-menu-toggle" style="background:none; border:none; font-size:1.5rem; color:var(--text-primary); cursor:pointer;">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+    <!-- Hero Section -->
+    <section class="hero" style="background: linear-gradient(135deg, #ec4899 0%, #be185d 100%);">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Java String Architecture</h1>
+                <p class="hero-subtitle">Immutability, Methods, StringBuilder & Algorithms</p>
+                <div style="font-family: monospace; font-size: 1.5rem; color: #fbcfe8; margin-top: 1rem; white-space: pre;">"Hello".substring(1, 4) -> "ell"</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Layout -->
+    <section class="container category-layout">
+        <!-- Sidebar Navigation -->
+        <div class="category-sidebar">
+            <h3>String Topics</h3>
+            <ul>
+                <li><a href="#basics" class="active">String Basics</a></li>
+                <li><a href="#methods">20+ Key Methods</a></li>
+                <li><a href="#builder">StringBuilder</a></li>
+                <li><a href="#algorithms">Algorithms</a></li>
+                <li><a href="#leetcode">LeetCode Sheet (25)</a></li>
+            </ul>
+        </div>
+
+        <!-- Content Area -->
+        <div class="category-content">
+            
+            <!-- SECTION 1: BASICS -->
+            <div id="basics" class="content-section">
+                <h2>1. String Immutability</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-link" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    In Java, objects of type String are immutable. When you modify a String, you are actually creating a <strong>brand new String object</strong> in the String Pool!
+                </div>
+
+                <h3>Why Immutable?</h3>
+                <ul class="concept-checklist">
+                    <li class="yes"><strong>Security:</strong> Parameters like DB URLs are passed as Strings.</li>
+                    <li class="yes"><strong>Synchronization:</strong> Inherently thread-safe.</li>
+                    <li class="yes"><strong>Caching:</strong> The String Constant Pool optimizes memory.</li>
+                </ul>
+
+                <!-- Code Example -->
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-str-1" class="language-java">public class StringImmutability {
+    public static void main(String[] args) {
+        String s1 = "Code";
+        String s2 = "Code";       // Points to the same object in pool
+        
+        System.out.println(s1 == s2); // true
+        
+        s1 = s1 + "Jamm";         // s1 now points to a new object "CodeJamm"
+        System.out.println(s2);   // "Code" remains unchanged
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-str-1')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- SECTION 2: METHODS -->
+            <div id="methods" class="content-section">
+                <h2>2. Essential String Methods</h2>
+                
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-str-2" class="language-java">public class StringMethods {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        
+        // 1. length()
+        System.out.println(str.length());  // 11
+        
+        // 2. charAt()
+        System.out.println(str.charAt(0));  // H
+        
+        // 3. substring(start, end)
+        System.out.println(str.substring(0, 5));  // Hello
+        
+        // 4. indexOf()
+        System.out.println(str.indexOf("o")); // 4 (first 'o')
+        
+        // 5. toLowerCase() / toUpperCase()
+        System.out.println(str.toUpperCase()); // HELLO WORLD
+        
+        // 6. trim() - removes padded whitespace
+        String dirty = "  trim me  ";
+        System.out.println(dirty.trim()); // "trim me"
+        
+        // 7. split()
+        String csv = "apple,banana,orange";
+        String[] fruits = csv.split(","); // ["apple", "banana", "orange"]
+        
+        // 8. replace()
+        System.out.println(str.replace('o', 'a')); // "Hella Warld"
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-str-2')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- SECTION 3: STRING BUILDER -->
+            <div id="builder" class="content-section">
+                <h2>3. StringBuilder & StringBuffer</h2>
+                <div class="concept-explanation">
+                    <i class="fas fa-hammer" style="color: var(--accent-color); margin-right: 10px;"></i>
+                    Since regular Strings are immutable, modifying them in loops creates thousands of dead objects. Use <code>StringBuilder</code> for mutable, fast string building.
+                </div>
+
+                <ul class="concept-checklist">
+                    <li class="bullet"><strong>StringBuilder:</strong> Fast, Not Thread Safe (Use in single-threaded ops)</li>
+                    <li class="bullet"><strong>StringBuffer:</strong> Slower, Thread Safe (Synchronized methods)</li>
+                </ul>
+
+                <div class="code-header">
+                    <span class="code-lang-badge">Java</span>
+                    <button class="code-copy-btn"><i class="far fa-copy"></i> Copy</button>
+                </div>
+<pre class="line-numbers"><code id="code-str-3" class="language-java">public class BuilderExample {
+    public static void main(String[] args) {
+        StringBuilder sb = new StringBuilder("Hello");
+        
+        // Append
+        sb.append(" World"); // Modifies the actual object natively
+        System.out.println(sb); // Hello World
+        
+        // Insert
+        sb.insert(5, " Beautiful");
+        System.out.println(sb); // Hello Beautiful World
+        
+        // Reverse (very useful for algorithms!)
+        sb.reverse();
+        System.out.println(sb); // dlroW lufituaeB olleH
+    }
+}</code></pre>
+                <button class="try-compiler-btn" onclick="tryInCompiler('code-str-3')"><i class="fas fa-play"></i> Try in Compiler</button>
+            </div>
+
+            <!-- LEETCODE PRACTICE SHEET -->
+            <div id="leetcode" class="leetcode-sheet content-section">
+                <h2><i class="fas fa-laptop-code" style="color: var(--primary-color);"></i> String Mastery Sheet</h2>
+
+                <div class="difficulty-section">
+                    <div class="difficulty-title">
+                        <i class="fas fa-font"></i> Strings
+                    </div>
+                    <div class="lc-problem-list">
+                        <!-- Easy -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-125">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/valid-palindrome/" target="_blank" class="lc-link">125. Valid Palindrome</a>
+                                <div class="lc-concept">Two Pointers passing alphanumeric</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-344">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/reverse-string/" target="_blank" class="lc-link">344. Reverse String</a>
+                                <div class="lc-concept">In-Place Character Array Swapping</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-242">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/valid-anagram/" target="_blank" class="lc-link">242. Valid Anagram</a>
+                                <div class="lc-concept">Frequency Array / Hash Map</div>
+                            </div>
+                            <span class="difficulty-badge badge-easy-lc">Easy</span>
+                        </div>
+
+                        <!-- Medium -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-3">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank" class="lc-link">3. Longest Substring Without Repeating</a>
+                                <div class="lc-concept">Sliding Window over Strings</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-49">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/group-anagrams/" target="_blank" class="lc-link">49. Group Anagrams</a>
+                                <div class="lc-concept">HashMap storing Lists</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-5">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/longest-palindromic-substring/" target="_blank" class="lc-link">5. Longest Palindromic Substring</a>
+                                <div class="lc-concept">Expand around center</div>
+                            </div>
+                            <span class="difficulty-badge badge-medium-lc">Medium</span>
+                        </div>
+
+                        <!-- Hard -->
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-76">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank" class="lc-link">76. Minimum Window Substring</a>
+                                <div class="lc-concept">Complex Sliding Window</div>
+                            </div>
+                            <span class="difficulty-badge badge-hard-lc">Hard</span>
+                        </div>
+                        <div class="lc-problem-item">
+                            <input type="checkbox" class="lc-checkbox" data-problem-id="str-32">
+                            <div class="lc-details">
+                                <a href="https://leetcode.com/problems/longest-valid-parentheses/" target="_blank" class="lc-link">32. Longest Valid Parentheses</a>
+                                <div class="lc-concept">Stacks & Strings</div>
+                            </div>
+                            <span class="difficulty-badge badge-hard-lc">Hard</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeJamm. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="js/categories.js"></script>
+</body>
+</html>
+
