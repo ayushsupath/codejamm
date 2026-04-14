@@ -2,12 +2,12 @@
 const API_CONFIG = {
     BASE_URL: 'https://codejamm.onrender.com',
     ENDPOINTS: {
-        CATEGORIES: '/categories',
-        PROGRAMS: '/programs',
-        TOPICS: '/topics',
-        COMPILER: '/compiler/execute',
-        REFERENCES: '/references',
-        VIDEOS: '/videos'
+        CATEGORIES: '/api/categories',
+        PROGRAMS: '/api/programs',
+        TOPICS: '/api/topics',
+        COMPILER: '/api/compiler/execute',
+        REFERENCES: '/api/references',
+        VIDEOS: '/api/videos'
     }
 };
 
