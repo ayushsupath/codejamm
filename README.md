@@ -13,7 +13,7 @@
 **CodeJamm** is a full-stack Java learning platform built for MCA students at SGSITS Indore. It provides 100+ categorized Java programs along with a built-in, live, in-browser Java compiler, giving students everything they need to practice and master Java programming in one place.
 
 ## 🔗 Live Demo
-- **Frontend Live URL:** [Add Netlify URL yahan likho]
+- **Frontend Live URL: https://codejamm.netlify.app/
 - **Backend API:** [https://codejamm-backend.onrender.com](https://codejamm-backend.onrender.com)
 
 ## 🛠️ Tech Stack
